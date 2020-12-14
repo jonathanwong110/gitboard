@@ -4,7 +4,7 @@ class Dashboard extends Component {
 
   render() {
     return(
-      <div className="component-heading">Dashboard Component</div>
+      <div className="page-heading">Dashboard Page</div>
     )
   }
 }

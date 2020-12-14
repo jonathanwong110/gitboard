@@ -4,7 +4,7 @@ class News extends Component {
 
   render() {
     return(
-      <div className="component-heading">News Component</div>
+      <div className="page-heading">News Page</div>
     )
   }
 }

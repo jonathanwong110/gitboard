@@ -1,13 +1,10 @@
 import axios from 'axios'
+import WeatherActionTypes from "./types";
+import { weatherAPI } from '../../API/keys'
 
-const baseURL = 'http://localhost:3000/api/v1/books/'
-const WeatherActionTypes = {
-  GET_WEATHER_FORECAST: 'GET_WEATHER_FORECAST'
-}
-
-export const getWeatherForecast = () => {
+export const getWeatherForecast = (weatherLatitude, weatherLongitude) => {
   return (dispatch) => {
-    axios.get(baseURL).then(res => {
+    axios.get(`${weatherAPI.base}weather?q=${'Brooklyn'}&units=imperial&APPID=${weatherAPI.key}`).then(res => {
       dispatch({ type: WeatherActionTypes.GET_WEATHER_FORECAST, weather: res.data })
     }
     )

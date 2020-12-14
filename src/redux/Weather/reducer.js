@@ -1,4 +1,4 @@
-import WeatherActionTypes from "./actions";
+import WeatherActionTypes from "./types";
 
 const INITIAL_STATE = {
   weather: {}
@@ -9,7 +9,7 @@ const weatherReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         status: 'LOADING_COMPLETE',
-        tasks: action.tasks
+        weather: action.weather
       }
     default:
       return state
