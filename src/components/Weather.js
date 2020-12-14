@@ -4,7 +4,7 @@ class Weather extends Component {
 
   render() {
     return(
-      <div>Weather Component</div>
+      <div className="component-heading">Weather Component</div>
     )
   }
 }

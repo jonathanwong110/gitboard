@@ -17,6 +17,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faNewspaper } from '@fortawesome/free-solid-svg-icons'
 
 const drawerWidth = 240;
 
@@ -142,18 +145,30 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>
-          <ListItem button key="Dashboard">
-            <ListItemIcon>
-              <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Dashboard" />
-          </ListItem>
-          <ListItem button key="Weather">
-            <ListItemIcon>
-              <WbSunnyIcon />
-            </ListItemIcon>
-            <ListItemText primary="Weather" />
-          </ListItem>
+          <Link to="/dashboard" className="component-link">
+            <ListItem button key="Dashboard">
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItem>
+          </Link>
+          <Link to="/weather" className="component-link">
+            <ListItem button key="Weather">
+              <ListItemIcon>
+                <WbSunnyIcon />
+              </ListItemIcon>
+              <ListItemText primary="Weather" />
+            </ListItem>
+          </Link>
+          <Link to="/news" className="component-link">
+            <ListItem button key="News">
+              <ListItemIcon>
+              <FontAwesomeIcon icon={faNewspaper} style={{height: '24px', width: '24px'}}/>
+              </ListItemIcon>
+              <ListItemText primary="News" />
+            </ListItem>
+          </Link>
         </List>
       </Drawer>
     </div>
