@@ -15,23 +15,31 @@ class Weather extends Component {
 
   position = async () => {
     await navigator.geolocation.getCurrentPosition(
-      position => this.setState({ 
-        latitude: position.coords.latitude, 
+      position => this.setState({
+        latitude: position.coords.latitude,
         longitude: position.coords.longitude
-      }), 
+      }),
       err => console.log(err)
     );
   }
 
   componentDidMount() {
     this.position()
-    // this.props.getWeatherForecast(this.state.latitude, this.state.longitude)
+    this.props.getWeatherForecast(this.state.latitude, this.state.longitude)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.weather.latitude === undefined) {
+      this.props.getWeatherForecast(this.state.latitude, this.state.longitude)
+    }
   }
 
   render() {
 
-    if (this.state.latitude || this.state.longitude === null ) {
-      console.log(this.state)
+    let { weather } = this.props
+
+    if (weather.latitude === undefined || weather.longitude === undefined) {
+      return <div>There is no weather here</div>
     }
 
     return (
