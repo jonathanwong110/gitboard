@@ -25,12 +25,14 @@ class Weather extends Component {
 
   componentDidMount() {
     this.position()
-    this.props.getWeatherForecast(this.state.latitude, this.state.longitude)
+    if (this.state.latitude === null || this.state.longitude === null) {
+      this.props.getWeatherForecast(this.state.latitude, this.state.longitude)
+    }
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.weather.latitude === undefined) {
-      this.props.getWeatherForecast(this.state.latitude, this.state.longitude)
+    if (!this.state.latitude && this.state.latitude === null) {
+      console.log(this.props.getWeatherForecast(this.state.latitude, this.state.longitude))
     }
   }
 

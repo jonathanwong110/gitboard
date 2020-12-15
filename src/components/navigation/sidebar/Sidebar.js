@@ -20,6 +20,7 @@ import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons'
+import ShowChartIcon from '@material-ui/icons/ShowChart';
 
 const drawerWidth = 240;
 
@@ -164,9 +165,17 @@ export default function MiniDrawer() {
           <Link to="/news" className="component-link">
             <ListItem button key="News">
               <ListItemIcon>
-              <FontAwesomeIcon icon={faNewspaper} style={{height: '24px', width: '24px'}}/>
+                <FontAwesomeIcon icon={faNewspaper} style={{ height: '24px', width: '24px' }} />
               </ListItemIcon>
               <ListItemText primary="News" />
+            </ListItem>
+          </Link>
+          <Link to="/stocks" className="component-link">
+            <ListItem button key="Stocks">
+              <ListItemIcon>
+                <ShowChartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Stocks" />
             </ListItem>
           </Link>
         </List>
