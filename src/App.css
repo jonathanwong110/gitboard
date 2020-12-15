@@ -1,13 +1,29 @@
 .App {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
+  height: 100vh;
 }
 
 .page-heading {
   font-size: 30px;
+  margin-bottom: 80px;
 }
 
 .component-link {
   color: black;
   text-decoration: none;
+}
+
+.news-information {
+  width: 42%;
+  float: left;
+}
+
+.news-image {
+  width: 55%;
+  margin-right: 50px;
+  float: left;
+  margin-bottom: 20px;
+  max-height: 200px;
+  max-width: 200px;
 }

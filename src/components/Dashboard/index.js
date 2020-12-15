@@ -32,8 +32,6 @@ class Dashboard extends Component {
 
     let today = new Date().getDay();
 
-    this.getGreetingForTimeOfDay()
-
     return (
       <>
         <div className="page-heading">{this.getGreetingForTimeOfDay()}</div>
