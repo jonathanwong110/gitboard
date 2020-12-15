@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 export default function NewsShow(props) {
 
@@ -7,10 +8,13 @@ export default function NewsShow(props) {
 
   return (
     <>
-      <div style={{ width: "100%", marginLeft: "20%" }}>
-        <Card.Title className="news-information">{article.title}</Card.Title>
-        <Image src={article.multimedia[0].url} alt="Article Picture" className="news-image" />
-      </div>
+      <a target='_blank' href={article.url}>
+        <div style={{ width: "100%", marginLeft: "20%", overflow: "auto" }}>
+          <Card.Title className="article-title" style={{ fontWeight: "bold" }}>{article.title}
+          </Card.Title>
+          <Image src={article.multimedia[0].url} alt="Article Picture" className="article-image" />
+        </div>
+        </a>
     </>
   )
 }

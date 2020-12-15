@@ -6,7 +6,7 @@
 
 .page-heading {
   font-size: 30px;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 .component-link {
@@ -14,12 +14,14 @@
   text-decoration: none;
 }
 
-.news-information {
+.article-title {
   width: 42%;
   float: left;
+  margin-right: 50px;
+  color: black;
 }
 
-.news-image {
+.article-image {
   width: 55%;
   margin-right: 50px;
   float: left;

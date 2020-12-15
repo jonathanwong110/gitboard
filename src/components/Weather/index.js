@@ -40,7 +40,7 @@ class Weather extends Component {
 
     let { weather } = this.props
 
-    if (weather.latitude === undefined || weather.longitude === undefined) {
+    if (weather && weather.latitude === undefined) {
       return <div>There is no weather here</div>
     }
 

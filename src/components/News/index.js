@@ -19,7 +19,8 @@ class News extends Component {
 
     return (
       <>
-        <div className="page-heading">News Page</div>
+        <div className="page-heading">News</div>
+        <div style={{marginBottom: "80px"}}>Get Top New York Times Articles!</div>
         {news.results.map((article, index) => {
           return (
             <NewsShow key={index} article={article}/>
