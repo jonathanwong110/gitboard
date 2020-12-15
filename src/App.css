@@ -40,8 +40,12 @@
   height: 80%;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid black;
-  background-color: white;
+  border: 1px solid white;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
 }
 
 .searchForm {
