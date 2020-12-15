@@ -2,52 +2,59 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { geolocated } from "react-geolocated";
 import { getWeatherForecast } from '../../redux/Weather/actions'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button } from 'react-bootstrap'
 
 class Weather extends Component {
 
-  constructor(props) {
-    super(props)
+  constructor() {
+    super();
     this.state = {
-      latitude: null,
-      longitude: null,
+      searchEntry: '',
+      searchQuery: '',
+      loading: false,
     }
   }
 
-  position = async () => {
-    await navigator.geolocation.getCurrentPosition(
-      position => this.setState({
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude
-      }),
-      err => console.log(err)
-    );
+  handleChange = (e) => {
+    this.setState({
+      searchEntry: e.target.value,
+      loading: true
+    })
   }
 
-  componentDidMount() {
-    this.position()
-    if (this.state.latitude === null || this.state.longitude === null) {
-      this.props.getWeatherForecast(this.state.latitude, this.state.longitude)
+  onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      this.handleSubmit(e)
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (!this.state.latitude && this.state.latitude === null) {
-      console.log(this.props.getWeatherForecast(this.state.latitude, this.state.longitude))
-    }
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const searchQuery = this.state.searchEntry.toLowerCase()
+    this.setState({
+      searchQuery
+    })
   }
 
   render() {
 
-    let { weather } = this.props
-
-    if (weather && weather.latitude === undefined) {
-      return <div>There is no weather here</div>
-    }
-
     return (
-      <div className="page-heading">Weather Page</div>
+      <>
+        <div className="page-heading">Weather Page</div>
+        <div>Find the weather for any city</div>
+        <div className="weather-container">
+          <br></br>
+          <input type="text" name="search" className="searchForm" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
+          <Button variant="primary" className="searchButton" type="submit" onClick={e => this.handleSubmit(e)}>
+            <FontAwesomeIcon icon={faSearch} />
+          </Button>
+        </div>
+      </>
     )
   }
+
 }
 
 const mapStateToProps = (state) => {
