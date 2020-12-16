@@ -9,6 +9,10 @@ export default function NewsShow(props) {
     return <div>No Image to see</div>
   }
 
+  if (article.created_date === undefined) {
+    return <div>No Date of Article to see</div>
+  }
+
   return (
     <>
       <div className="article-individual-piece">
@@ -19,9 +23,13 @@ export default function NewsShow(props) {
               {article.title}
             </div>
             <Image src={article.multimedia[0].url} alt="Article Picture" className="article-image" />
+            <div className="article-date" style={{ fontWeight: "bold", fontSize: "13px", textAlign: "left" }}>
+              {article.created_date.toLocaleString().substring(0, 10)}
+            </div>
           </div>
         </a>
       </div>
+      <div style={{ height: "20px" }}></div>
     </>
   )
 }

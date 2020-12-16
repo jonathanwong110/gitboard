@@ -5,6 +5,7 @@ import { compose } from 'redux'
 import { Nav, Navbar } from 'react-bootstrap';
 import { getTopNews } from '../../redux/News/actions'
 import NewsShow from './NewsShow'
+import { capitalizeFirstLetter } from '../Display/DisplayFunctions'
 
 class News extends Component {
 
@@ -41,16 +42,16 @@ class News extends Component {
     return (
       <>
         <div className="page-heading">News</div>
-        {match.params?.section === undefined ?
+        {match.params?.section === undefined || match.params?.section === 'arts' ?
           <div style={{ marginBottom: "40px" }}>
             Top New York Times Articles on Art!
           </div>
           :
           <div style={{ marginBottom: "40px" }}>
-            Top New York Times Articles on {match.params?.section}!
+            Top New York Times Articles on {capitalizeFirstLetter(match.params?.section)}!
           </div>
         }
-        <Navbar id="news-category-nav">
+        <Navbar id="news-section-nav">
           <Nav className="mr-auto">
             <Link to="/news/arts" onClick={e => this.changeToSection(e)}> Art </Link>
           </Nav>
@@ -73,6 +74,7 @@ class News extends Component {
             <NewsShow key={index} article={article} />
           )
         })}
+        <div style={{ height: "100px" }}></div>
       </>
     )
   }
@@ -84,4 +86,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default compose(withRouter, connect(mapStateToProps, { getTopNews }))(News)
+export default compose(withRouter, connect(mapStateToProps, { getTopNews, capitalizeFirstLetter }))(News)

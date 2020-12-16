@@ -2,6 +2,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   height: 100vh;
+  width: 100vw;
   background-color: white;
 }
 
@@ -19,14 +20,14 @@
 
 /* News */
 
-#news-category-nav {
-  width: 620px;
-  margin-left: 30%;
-  justify-content: center;
-  align-items: center;
+#news-section-nav {
+  width: 40%;
+  min-width: 600px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-#news-category-nav div a {
+#news-section-nav div a {
   color: black;
   font-size: 15px;
   width: 100px;
@@ -38,18 +39,17 @@
   font-weight: 500;
 }
 
-#news-category-nav div a:hover {
+#news-section-nav div a:hover {
   background-color: #e6e6e6;
   text-decoration: none;
   color: #003380;
 }
 
 .article-individual-piece {
-  width: 620px;
-  margin-left: 30%;
-  display: block;
-  justify-content: center;
-  align-items: center;
+  width: 40%;
+  min-width: 600px;
+  max-width: 600px;
+  margin: 0 auto;
   height: 190px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
@@ -68,6 +68,14 @@
   color: black;
 }
 
+.article-date {
+  width: 42%;
+  float: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: black;
+}
+
 .article-image {
   width: 55%;
   float: right;
@@ -80,10 +88,11 @@
 /* Weather */
 
 .weather-container {
-  max-width: 50%;
+  width: 40%;
+  min-width: 600px;
+  max-width: 600px;
+  margin: 0 auto;
   height: 50%;
-  margin-left: auto;
-  margin-right: auto;
   border: 1px solid white;
   background: white;
   padding: 5px;
