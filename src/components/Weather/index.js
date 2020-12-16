@@ -4,7 +4,7 @@ import { geolocated } from "react-geolocated";
 import { getWeatherForecast } from '../../redux/Weather/actions'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Image } from 'react-bootstrap'
+import { Button, Form, Image } from 'react-bootstrap'
 
 class Weather extends Component {
 
@@ -15,10 +15,6 @@ class Weather extends Component {
       searchQuery: '',
       loading: false,
     }
-  }
-
-  componentDidMount() {
-    this.props.getWeatherForecast()
   }
 
   handleChange = (e) => {
@@ -40,6 +36,7 @@ class Weather extends Component {
     this.setState({
       searchQuery
     })
+    this.props.getWeatherForecast(searchQuery)
   }
 
   giveAdvice = (degrees) => {
@@ -58,28 +55,32 @@ class Weather extends Component {
 
     let { weather } = this.props
 
-    if (weather && weather?.main === undefined) {
-      return <div>There is no weather here</div>
-    }
-
     return (
       <>
-        {console.log(weather)}
-        <div className="page-heading">Weather Page</div>
-        <div>Find the weather for any city</div>
+        <div className="page-heading">Weather</div>
+        <div>Find the Weather For Any City</div>
         <br></br>
         <div className="weather-container">
           <br></br>
-          <input type="text" name="search" className="searchForm" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
-          <Button variant="primary" className="searchButton" type="submit" onClick={e => this.handleSubmit(e)}>
-            <FontAwesomeIcon icon={faSearch} />
-          </Button>
+          <Form onSubmit={e => this.handleSubmit(e)}>
+            <input type="text" name="search" className="searchForm" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
+            <Button variant="primary" className="searchButton" type="submit" onClick={e => this.handleSubmit(e)}>
+              <FontAwesomeIcon icon={faSearch} />
+            </Button>
+          </Form>
           <br></br>
-          <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px" }} />
-          <div>{weather.main.temp} &deg;F </div>
-          <div>Low {weather.main.temp_min} &deg;F  / Low {weather.main.temp_max} &deg;F </div>
-          <div>{this.giveAdvice(weather.main.temp)}</div>
-          <div>{weather.name}, {weather.sys.country}</div>
+          {weather?.main !== undefined ?
+            <>
+              <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px" }} />
+              <div style={{fontSize: "30px"}}>{weather.main.temp} &deg;F </div>
+              <br></br>
+              <div style={{fontSize: "25px"}}>Low {weather.main.temp_min} &deg;F  / Low {weather.main.temp_max} &deg;F </div>
+              <br></br>
+              <div style={{fontSize: "20px"}}>{this.giveAdvice(weather.main.temp)}</div>
+              <br></br>
+              <div style={{fontSize: "20px"}}>{weather.name}, {weather.sys.country}</div>
+            </> : null
+          }
         </div>
       </>
     )
