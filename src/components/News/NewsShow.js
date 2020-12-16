@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Card } from 'react-bootstrap';
+import { Card, Image } from 'react-bootstrap';
 
 export default function NewsShow(props) {
 
@@ -7,12 +7,13 @@ export default function NewsShow(props) {
 
   return (
     <>
-      <div style={{width: "auto", marginLeft: "30%", maxWidth: "800px", display: "block", justifyContent: "center", alignItems: "center"}}>
+      <div className="article-individual-piece">
+        <div style={{ height: "20px" }}></div>
         <a href={article.url} target='_blank' rel="noopener noreferrer">
           <div>
-            <Card.Title className="article-title" style={{ fontWeight: "bold" }}>
+            <div className="article-title" style={{ fontWeight: "bold", fontSize: "15px", textAlign: "left" }}>
               {article.title}
-            </Card.Title>
+            </div>
             <Image src={article.multimedia[0].url} alt="Article Picture" className="article-image" />
           </div>
         </a>

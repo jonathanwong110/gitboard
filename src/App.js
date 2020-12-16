@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Sidebar from './components/navigation/sidebar/Sidebar';
+import Sidebar from './components/Navigation/Sidebar';
 import Dashboard from './components/Dashboard/index'
 import Weather from './components/Weather/index'
 import News from './components/News/index'
