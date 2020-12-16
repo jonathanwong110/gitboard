@@ -1,9 +1,13 @@
 import React from 'react';
-import { Card, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 
 export default function NewsShow(props) {
 
   const { article } = props
+
+  if (article.multimedia === null) {
+    return <div>No Image to see</div>
+  }
 
   return (
     <>

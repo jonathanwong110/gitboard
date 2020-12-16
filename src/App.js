@@ -19,6 +19,7 @@ class App extends Component {
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/weather" component={Weather} />
             <Route exact path="/news" component={News} />
+            <Route exact path="/news/:section" component={News} />
           </Switch>
         </div>
       </BrowserRouter>

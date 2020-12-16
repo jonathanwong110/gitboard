@@ -19,6 +19,31 @@
 
 /* News */
 
+#news-category-nav {
+  width: 620px;
+  margin-left: 30%;
+  justify-content: center;
+  align-items: center;
+}
+
+#news-category-nav div a {
+  color: black;
+  font-size: 15px;
+  width: 100px;
+  height: 30px;
+  padding-top: 5px;
+  background-color: #003380;
+  border-radius: 2px;
+  color: white;
+  font-weight: 500;
+}
+
+#news-category-nav div a:hover {
+  background-color: #e6e6e6;
+  text-decoration: none;
+  color: #003380;
+}
+
 .article-individual-piece {
   width: 620px;
   margin-left: 30%;
