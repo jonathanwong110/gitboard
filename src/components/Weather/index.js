@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { geolocated } from "react-geolocated";
-import { getWeatherForecast } from '../../redux/Weather/actions'
+import { getWeatherForecastFromLocation, getWeatherForecastFromSearch } from '../../redux/Weather/actions'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Form, Image } from 'react-bootstrap'
@@ -14,6 +13,13 @@ class Weather extends Component {
       searchEntry: '',
       searchQuery: '',
       loading: false,
+    }
+  }
+
+  componentDidMount() {
+    if (navigator.geolocation && localStorage.getItem('location')) {
+      let coordinates = JSON.parse(localStorage.getItem('location'))
+      this.props.getWeatherForecastFromLocation(coordinates.latitude, coordinates.longitude)
     }
   }
 
@@ -36,7 +42,12 @@ class Weather extends Component {
     this.setState({
       searchQuery
     })
-    this.props.getWeatherForecast(searchQuery)
+    if (searchQuery.length !== 0) {
+      this.props.getWeatherForecastFromSearch(searchQuery)
+    } else {
+      let coordinates = JSON.parse(localStorage.getItem('location'))
+      this.props.getWeatherForecastFromLocation(coordinates.latitude, coordinates.longitude)
+    }
   }
 
   giveAdvice = (degrees) => {
@@ -72,13 +83,13 @@ class Weather extends Component {
           {weather?.main !== undefined ?
             <>
               <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px" }} />
-              <div style={{fontSize: "30px"}}>{weather.main.temp} &deg;F </div>
+              <div style={{ fontSize: "30px" }}>{weather.main.temp} &deg;F </div>
               <br></br>
-              <div style={{fontSize: "25px"}}>Low {weather.main.temp_min} &deg;F  / Low {weather.main.temp_max} &deg;F </div>
+              <div style={{ fontSize: "25px" }}>Low {weather.main.temp_min} &deg;F  / Low {weather.main.temp_max} &deg;F </div>
               <br></br>
-              <div style={{fontSize: "20px"}}>{this.giveAdvice(weather.main.temp)}</div>
+              <div style={{ fontSize: "20px" }}>{this.giveAdvice(weather.main.temp)}</div>
               <br></br>
-              <div style={{fontSize: "20px"}}>{weather.name}, {weather.sys.country}</div>
+              <div style={{ fontSize: "20px" }}>{weather.name}, {weather.sys.country}</div>
             </> : null
           }
         </div>
@@ -94,4 +105,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getWeatherForecast, geolocated })(Weather)
+export default connect(mapStateToProps, { getWeatherForecastFromLocation, getWeatherForecastFromSearch })(Weather)
+

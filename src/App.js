@@ -5,10 +5,34 @@ import Sidebar from './components/Navigation/Sidebar';
 import Dashboard from './components/Dashboard/index'
 import Weather from './components/Weather/index'
 import News from './components/News/index'
+import Stocks from './components/Stocks/index'
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      latitude: null,
+      longitude: null,
+      error: null,
+    };
+  }
+
+  componentDidMount() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        let coordinates = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        }
+        localStorage.setItem('location', JSON.stringify(coordinates))
+      })
+    }
+  }
+
   render() {
+
     return (
       <BrowserRouter>
         <div className="App">
@@ -20,6 +44,7 @@ class App extends Component {
             <Route exact path="/weather" component={Weather} />
             <Route exact path="/news" component={News} />
             <Route exact path="/news/:section" component={News} />
+            <Route exact path="/stocks" component={Stocks} />
           </Switch>
         </div>
       </BrowserRouter>
