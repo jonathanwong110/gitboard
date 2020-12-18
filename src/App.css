@@ -125,3 +125,55 @@
   height: 36px;
   margin-bottom: 6px;
 }
+
+/* Stocks */
+
+#stocks-container {
+  border-radius: 5px;
+  color: white;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+  #stocks-container {
+    width: 60%;
+  }
+}
+
+.stocks-col-title {
+  font-size: 20px;
+  background-color: #003380;
+  white-space: normal;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.stocks-col-info {
+  font-size: 15px;
+  background-color: #005ce6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 449px) {
+  .stocks-col-title {
+    font-size: 13px;
+  }
+  .stocks-col-info {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 600px) {
+  .stocks-col-title {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  #stocks-container div div:first-child {
+    word-break: break-all;
+  }
+}
