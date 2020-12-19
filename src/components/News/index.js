@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom'
 import { compose } from 'redux'
-import { Col, Container, Row } from 'react-bootstrap';
+// import { Col, Container, Row } from 'react-bootstrap';
 import { getTopNews } from '../../redux/News/actions'
 import NewsShow from './NewsShow'
 import { capitalizeFirstLetter } from '../Display/DisplayFunctions'
@@ -43,53 +43,53 @@ class News extends Component {
       <>
         <div className="page-heading">News</div>
         {match.params?.section === undefined || match.params?.section === 'arts' ?
-          <div style={{ fontSize: "15px", fontWeight: "600", marginBottom: "40px" }}>
-            Top New York Times Articles on Art!
+          <div className="news-page-subheading">
+            View Top New York Times Articles on Art!
           </div>
           :
-          <div style={{ fontSize: "15px", fontWeight: "600", marginBottom: "40px" }}>
-            Top New York Times Articles on {capitalizeFirstLetter(match.params?.section)}!
+          <div className="news-page-subheading">
+            View Top New York Times Articles on {capitalizeFirstLetter(match.params?.section)}!
           </div>
         }
-        <Container id="news-section-nav">
-          <Row>
-            <Col className="mr-auto">
+        <div id="news-section-nav" className="container-fluid">
+          <div className="row">
+            <div className="col-sm">
               <Link to="/news/arts" onClick={e => this.changeToSection(e)}>
                 <button className="news-section-button">
                   Art
                 </button>
               </Link>
-            </Col>
-            <Col className="mr-auto">
+            </div>
+            <div className="col-sm">
               <Link to="/news/business" onClick={e => this.changeToSection(e)}>
                 <button className="news-section-button">
                   Business
                 </button>
               </Link>
-            </Col>
-            <Col className="mr-auto">
+            </div>
+            <div className="col-sm">
               <Link to="/news/science" onClick={e => this.changeToSection(e)}>
                 <button className="news-section-button">
                   Science
                 </button>
               </Link>
-            </Col>
-            <Col className="mr-auto">
+            </div>
+            <div className="col-sm">
               <Link to="/news/technology" onClick={e => this.changeToSection(e)}>
                 <button className="news-section-button">
                   Tech
                 </button>
               </Link>
-            </Col>
-            <Col className="mr-auto">
+            </div>
+            <div className="col-sm">
               <Link to="/news/politics" onClick={e => this.changeToSection(e)}>
                 <button className="news-section-button">
                   Politics
                 </button>
               </Link>
-            </Col>
-          </Row>
-        </Container>
+            </div>
+          </div>
+        </div>
         <div style={{ height: "40px" }}></div>
         {news.results.map((article, index) => {
           return (
