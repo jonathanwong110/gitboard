@@ -43,11 +43,11 @@ class News extends Component {
       <>
         <div className="page-heading">News</div>
         {match.params?.section === undefined || match.params?.section === 'arts' ?
-          <div className="news-page-subheading">
+          <div className="page-subheading">
             View Top New York Times Articles on Art!
           </div>
           :
-          <div className="news-page-subheading">
+          <div className="page-subheading">
             View Top New York Times Articles on {capitalizeFirstLetter(match.params?.section)}!
           </div>
         }

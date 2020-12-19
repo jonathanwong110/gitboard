@@ -69,7 +69,7 @@ class Weather extends Component {
     return (
       <>
         <div className="page-heading">Weather</div>
-        <div>Find the Weather For Any City</div>
+        <div className="page-subheading">Find the Weather For Any City</div>
         <br></br>
         <div className="weather-container">
           <br></br>
@@ -83,16 +83,17 @@ class Weather extends Component {
           {weather?.main !== undefined ?
             <>
               <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px" }} />
-              <div style={{ fontSize: "30px" }}>{weather.main.temp} &deg;F </div>
+              <div id="weather-main-temp">{weather.main.temp} &deg;F </div>
               <br></br>
-              <div style={{ fontSize: "25px" }}>Low {weather.main.temp_min} &deg;F  / Low {weather.main.temp_max} &deg;F </div>
+              <div id="weather-temp-min-max">Low {weather.main.temp_min} &deg;F  / Low {weather.main.temp_max} &deg;F </div>
               <br></br>
-              <div style={{ fontSize: "20px" }}>{this.giveAdvice(weather.main.temp)}</div>
+              <div id="weather-advice">{this.giveAdvice(weather.main.temp)}</div>
               <br></br>
-              <div style={{ fontSize: "20px" }}>{weather.name}, {weather.sys.country}</div>
+              <div id="weather-location">{weather.name}, {weather.sys.country}</div>
             </> : null
           }
         </div>
+        <br></br>
       </>
     )
   }

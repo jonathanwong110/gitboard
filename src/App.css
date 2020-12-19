@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  background-color: white;
+}
+
 .App {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
@@ -13,20 +18,20 @@
   margin-bottom: 20px;
 }
 
-.component-link {
-  color: black;
-  text-decoration: none;
-}
-
-/* News */
-
-.news-page-subheading {
+.page-subheading {
   font-size: 15px;
   font-weight: 600;
   width: 25%;
   margin: 20px auto;
   white-space: normal;
 }
+
+.component-link {
+  color: black;
+  text-decoration: none;
+}
+
+/* News */
 
 @media (max-width: 767px) {
   #news-section-nav div {
@@ -181,11 +186,6 @@
 /* Weather */
 
 .weather-container {
-  width: 40%;
-  min-width: 600px;
-  max-width: 600px;
-  margin: 0 auto;
-  height: 50%;
   border: 1px solid white;
   background: white;
   padding: 5px;
@@ -194,10 +194,58 @@
   border-radius: 5px;
 }
 
+@media (max-width: 700px) {
+  .weather-container {
+    width: 75%;
+    max-width: 600px;
+    margin: 0 75px;
+    height: auto;
+    max-height: 600px;
+  }
+}
+
+@media (min-width: 701px) {
+  .weather-container {
+    width: 40%;
+    max-width: 600px;
+    margin: 0 auto;
+    height: auto;
+    max-height: 600px;
+  } 
+}
+
+#weather-main-temp, #weather-temp-min-max, #weather-advice, #weather-location {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#weather-main-temp {
+  font-size: 30px;
+}
+
+#weather-temp-min-max {
+  font-size: 25px;
+}
+
+#weather-advice {
+  font-size: 20px;
+}
+
+#weather-location {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 400px) {
+  #weather-main-temp, #weather-temp-min-max, #weather-advice, #weather-location {
+    font-size: 20px;
+  }
+}
+
 .searchForm {
   position: relative;
   top: 3px;
-  width: 90%;
+  width: 75%;
   height: 36px;
   max-width: 260px;
 }
