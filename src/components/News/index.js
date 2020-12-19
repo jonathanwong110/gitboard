@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom'
 import { compose } from 'redux'
-import { Nav, Navbar } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { getTopNews } from '../../redux/News/actions'
 import NewsShow from './NewsShow'
 import { capitalizeFirstLetter } from '../Display/DisplayFunctions'
@@ -43,31 +43,53 @@ class News extends Component {
       <>
         <div className="page-heading">News</div>
         {match.params?.section === undefined || match.params?.section === 'arts' ?
-          <div style={{ marginBottom: "40px" }}>
+          <div style={{ fontSize: "15px", fontWeight: "600", marginBottom: "40px" }}>
             Top New York Times Articles on Art!
           </div>
           :
-          <div style={{ marginBottom: "40px" }}>
+          <div style={{ fontSize: "15px", fontWeight: "600", marginBottom: "40px" }}>
             Top New York Times Articles on {capitalizeFirstLetter(match.params?.section)}!
           </div>
         }
-        <Navbar id="news-section-nav">
-          <Nav className="mr-auto">
-            <Link to="/news/arts" onClick={e => this.changeToSection(e)}> Art </Link>
-          </Nav>
-          <Nav className="mr-auto">
-            <Link to="/news/business" onClick={e => this.changeToSection(e)}> Business </Link>
-          </Nav>
-          <Nav className="mr-auto">
-            <Link to="/news/science" onClick={e => this.changeToSection(e)}> Science </Link>
-          </Nav>
-          <Nav className="mr-auto">
-            <Link to="/news/technology" onClick={e => this.changeToSection(e)}> Tech </Link>
-          </Nav>
-          <Nav className="mr-auto">
-            <Link to="/news/politics" onClick={e => this.changeToSection(e)}> Politics </Link>
-          </Nav>
-        </Navbar>
+        <Container id="news-section-nav">
+          <Row>
+            <Col className="mr-auto">
+              <Link to="/news/arts" onClick={e => this.changeToSection(e)}>
+                <button className="news-section-button">
+                  Art
+                </button>
+              </Link>
+            </Col>
+            <Col className="mr-auto">
+              <Link to="/news/business" onClick={e => this.changeToSection(e)}>
+                <button className="news-section-button">
+                  Business
+                </button>
+              </Link>
+            </Col>
+            <Col className="mr-auto">
+              <Link to="/news/science" onClick={e => this.changeToSection(e)}>
+                <button className="news-section-button">
+                  Science
+                </button>
+              </Link>
+            </Col>
+            <Col className="mr-auto">
+              <Link to="/news/technology" onClick={e => this.changeToSection(e)}>
+                <button className="news-section-button">
+                  Tech
+                </button>
+              </Link>
+            </Col>
+            <Col className="mr-auto">
+              <Link to="/news/politics" onClick={e => this.changeToSection(e)}>
+                <button className="news-section-button">
+                  Politics
+                </button>
+              </Link>
+            </Col>
+          </Row>
+        </Container>
         <div style={{ height: "40px" }}></div>
         {news.results.map((article, index) => {
           return (
