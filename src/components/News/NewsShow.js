@@ -16,21 +16,31 @@ export default function NewsShow(props) {
 
   return (
     <>
-      <div className="article-individual-piece">
-        <div id="article-space-break"></div>
-        <a href={article.url} target='_blank' rel="noopener noreferrer">
-          <div>
-            <Image src={article.multimedia[0].url} alt="Article Picture" className="article-image" />
-            <div className="article-title" style={{ fontWeight: "bold", fontSize: "15px", textAlign: "left" }}>
-              {article.title}
-            </div>
-            <div className="article-date" style={{ fontWeight: "bold", fontSize: "13px", textAlign: "left" }}>
-              {formatDate(article.created_date)}
+      <div className="card mb-3 article-individual-wrapper">
+        <div className="row no-gutters">
+          <div className="col-md-5">
+            <a href={article.url} target='_blank' rel="noopener noreferrer">
+              <Image src={article.multimedia[0].url} className="card-img article-picture" alt="Article Picture" />
+            </a>
+          </div>
+          <div className="col-md-7">
+            <div className="card-body">
+              <h5 className="card-title article-title">
+                <a href={article.url} target='_blank' rel="noopener noreferrer">
+                  {article.title}
+                </a>
+              </h5>
+              <p className="card-text">
+                <small className="text-muted article-date">
+                  <a href={article.url} target='_blank' rel="noopener noreferrer">
+                    {formatDate(article.created_date)}
+                  </a>
+                </small>
+              </p>
             </div>
           </div>
-        </a>
+        </div>
       </div>
-      <div style={{ height: "20px" }}></div>
     </>
   )
 }

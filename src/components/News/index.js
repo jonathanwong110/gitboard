@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom'
 import { compose } from 'redux'
-// import { Col, Container, Row } from 'react-bootstrap';
 import { getTopNews } from '../../redux/News/actions'
 import NewsShow from './NewsShow'
 import { capitalizeFirstLetter } from '../Display/DisplayFunctions'
