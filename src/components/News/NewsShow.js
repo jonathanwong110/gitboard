@@ -30,7 +30,7 @@ export default function NewsShow(props) {
                   {article.title}
                 </a>
               </h5>
-              <p className="card-text">
+              <p className="card-text" style={{ textAlign: "left" }}>
                 <small className="text-muted article-date">
                   <a href={article.url} target='_blank' rel="noopener noreferrer">
                     {formatDate(article.created_date)}

@@ -11,7 +11,7 @@ class News extends Component {
   componentDidMount() {
     let { match } = this.props
     if (match.params.section === undefined) {
-      this.props.getTopNews('arts')
+      this.props.getTopNews('home')
     } else {
       this.props.getTopNews(match.params.section)
     }
@@ -41,21 +41,21 @@ class News extends Component {
     return (
       <>
         <div className="page-heading">News</div>
-        {match.params?.section === undefined || match.params?.section === 'arts' ?
+        {match.params?.section === undefined || match.params?.section === 'home' ?
           <div className="page-subheading">
-            View Top New York Times Articles on Art!
+            View the Articles on New York Times' Front Page
           </div>
           :
           <div className="page-subheading">
-            View Top New York Times Articles on {capitalizeFirstLetter(match.params?.section)}!
+            View the Top New York Times Articles on {capitalizeFirstLetter(match.params?.section)}!
           </div>
         }
         <div id="news-section-nav" className="container-fluid">
           <div className="row">
             <div className="col-sm">
-              <Link to="/news/arts" onClick={e => this.changeToSection(e)}>
+              <Link to="/news/home" onClick={e => this.changeToSection(e)}>
                 <button className="news-section-button">
-                  Art
+                  Home
                 </button>
               </Link>
             </div>

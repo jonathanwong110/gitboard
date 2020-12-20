@@ -83,7 +83,7 @@ class Weather extends Component {
           {weather?.main !== undefined ?
             <>
               <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px" }} />
-              <div id="weather-main-temp">{weather.main.temp} &deg;F </div>
+              <div className="weather-main-temp">{weather.main.temp} &deg;F </div>
               <br></br>
               <div id="weather-temp-min-max">Low {weather.main.temp_min} &deg;F  / Low {weather.main.temp_max} &deg;F </div>
               <br></br>

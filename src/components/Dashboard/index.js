@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom'
+import { compose } from 'redux'
 import { getWeatherForecastFromLocation, getWeatherForecastFromSearch } from '../../redux/Weather/actions'
 import { getTopNews } from '../../redux/News/actions'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
@@ -21,7 +23,7 @@ class Dashboard extends Component {
       let coordinates = JSON.parse(localStorage.getItem('location'))
       this.props.getWeatherForecastFromLocation(coordinates.latitude, coordinates.longitude)
     }
-    this.props.getTopNews('arts')
+    this.props.getTopNews('home')
   }
 
   handleChange = (e) => {
@@ -77,18 +79,20 @@ class Dashboard extends Component {
     let articles = news.results
 
     if (news.results === null || articles === undefined) {
-      return <div>No Image to see</div>
+      return <div>No article to see</div>
     }
 
     let article = articles[0]
 
     return (
       <>
-        <div className="page-heading">{this.getGreetingForTimeOfDay()}</div>
-        <div>
-          {this.state.date}
+        <div className="page-heading">
+          {this.getGreetingForTimeOfDay()}
         </div>
-        <div style={{ fontSize: "20px" }}>
+        <div className="page-subheading">
+          {formatDate(this.state.date)}
+        </div>
+        <div style={{ fontSize: "15px" }}>
           Today is {this.getDayName(today)}!
         </div>
         <br></br>
@@ -96,12 +100,14 @@ class Dashboard extends Component {
           <br></br>
           {weather?.main !== undefined ?
             <>
-              <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px" }} />
-              <div id="weather-main-temp">{weather.main.temp} &deg;F </div>
-              <br></br>
+              <Link to="/weather" id="dashboard-weather-link">
+                <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px" }} />
+                <div className="weather-main-temp" id="dashboard-weather-main-temp">{weather.main.temp} &deg;F </div>
+                <br></br>
+              </Link>
             </> :
             <div>
-              <div>Weather</div>
+              <div style={{ fontSize: "15px" }}>Weather</div>
               <br></br>
               <Form onSubmit={e => this.handleSubmit(e)}>
                 <input type="text" name="search" className="searchForm" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
@@ -128,7 +134,7 @@ class Dashboard extends Component {
                     {article.title}
                   </a>
                 </h5>
-                <p className="card-text">
+                <p className="card-text" style={{ textAlign: "left" }}>
                   <small className="text-muted article-date">
                     <a href={article.url} target='_blank' rel="noopener noreferrer">
                       {formatDate(article.created_date)}
@@ -151,4 +157,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getWeatherForecastFromLocation, getWeatherForecastFromSearch, getTopNews, formatDate })(Dashboard)
+export default compose(withRouter, connect(mapStateToProps, { getWeatherForecastFromLocation, getWeatherForecastFromSearch, getTopNews, formatDate }))(Dashboard)
