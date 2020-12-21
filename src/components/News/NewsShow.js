@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
-import { formatDate } from '../Display/DisplayFunctions'
+import { formatDate } from '../Misc/MiscFunctions'
 
 export default function NewsShow(props) {
 

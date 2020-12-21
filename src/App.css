@@ -36,25 +36,114 @@ html, body {
 
 /* Dashboard */
 
-.dashboard-weather-container {
-  margin: 0 auto;
-  width: 200px;
+#dashboard-first-row {
+  width: 598px
+}
+
+#dashboard-first-row div div {
+  padding: 0;
+}
+
+@media (min-width: 200px) and (max-width: 576px) {
+  #dashboard-first-row {
+    margin-left: 25%;
+    width: 65%;
+  }
+  #dashboard-first-row div div {
+    margin: 0;
+    width: 100%;
+  }
+  #dashboard-first-row div div div {
+    margin-bottom: 20px;
+  }
+  #dashboard-divider {
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 599px) {
+  #dashboard-first-row {
+    width: 65%;
+    margin-left: 25%;
+  }
+  #dashboard-first-row div div {
+    width: 90%;
+  }
+  #dashboard-divider {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  #dashboard-first-row {
+    margin: 0 auto;
+    width: 65%;
+  }
+  #dashboard-first-row div div {
+    width: 90%;
+  }
+  #dashboard-divider {
+    margin-bottom: 20px;
+  }
+}
+
+.today-information {
+  margin: 0;
+  width: 275px;
   border: 1px solid white;
   background: white;
   padding: 5px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
+  height: 198px;
 }
+
+.dashboard-weather-container {
+  margin: 0 0 0 24px;
+  width: 275px;
+  border: 1px solid white;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  height: 198px;
+}
+
+#dashboard-divider {
+  margin-bottom: 20px;
+}
+
+#today-day, #today-date, #dashboard-weather-link, #dashboard-weather-main-temp {
+  margin: 0 auto;
+}
+
+#today-day {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#today-date {
+  font-size: 17px;
+}
+
+/* Dashboard Weather */
 
 #dashboard-weather-link {
   color: black;
+}
+
+#dashboard-weather-location:hover {
+  opacity: 0.4;
 }
 
 #dashboard-weather-link:hover, #dashboard-weather-main-temp:hover {
   text-decoration: none;
   opacity: 0.4;
 }
+
+/* Dashboard News */
 
 .dashboard-article-wrapper {
   margin: 0 auto;

@@ -7,7 +7,8 @@ import { getTopNews } from '../../redux/News/actions'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Form, Image } from 'react-bootstrap'
-import { formatDate } from '../Display/DisplayFunctions'
+import { formatDate, randomAffirmations } from '../Misc/MiscFunctions'
+import NewsShow from '../News/NewsShow'
 
 class Dashboard extends Component {
 
@@ -89,62 +90,51 @@ class Dashboard extends Component {
         <div className="page-heading">
           {this.getGreetingForTimeOfDay()}
         </div>
-        <div className="page-subheading">
-          {formatDate(this.state.date)}
-        </div>
-        <div style={{ fontSize: "15px" }}>
-          Today is {this.getDayName(today)}!
-        </div>
+        <div className="page-subheading">{randomAffirmations()}</div>
         <br></br>
-        <div className="dashboard-weather-container">
-          <br></br>
-          {weather?.main !== undefined ?
-            <>
-              <Link to="/weather" id="dashboard-weather-link">
-                <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px" }} />
-                <div className="weather-main-temp" id="dashboard-weather-main-temp">{weather.main.temp} &deg;F </div>
+        <div className="container-fluid" id="dashboard-first-row">
+          <div className="row row-cols-sm-2">
+            <div className="col-sm">
+              <div className="today-information">
                 <br></br>
-              </Link>
-            </> :
-            <div>
-              <div style={{ fontSize: "15px" }}>Weather</div>
-              <br></br>
-              <Form onSubmit={e => this.handleSubmit(e)}>
-                <input type="text" name="search" className="searchForm" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
-                <Button variant="primary" className="searchButton" type="submit" onClick={e => this.handleSubmit(e)}>
-                  <FontAwesomeIcon icon={faSearch} />
-                </Button>
-              </Form>
-              <br></br>
+                <div id="today-day">
+                  {this.getDayName(today)}
+                </div>
+                <div id="today-date">
+                  {formatDate(this.state.date)}
+                </div>
+              </div>
             </div>
-          }
-        </div>
-        <br></br>
-        <div className="card mb-3 article-individual-wrapper">
-          <div className="row no-gutters">
-            <div className="col-md-5">
-              <a href={article.url} target='_blank' rel="noopener noreferrer">
-                <Image src={article.multimedia[0].url} className="card-img article-picture" alt="Article Picture" />
-              </a>
-            </div>
-            <div className="col-md-7">
-              <div className="card-body">
-                <h5 className="card-title article-title">
-                  <a href={article.url} target='_blank' rel="noopener noreferrer">
-                    {article.title}
-                  </a>
-                </h5>
-                <p className="card-text" style={{ textAlign: "left" }}>
-                  <small className="text-muted article-date">
-                    <a href={article.url} target='_blank' rel="noopener noreferrer">
-                      {formatDate(article.created_date)}
-                    </a>
-                  </small>
-                </p>
+            <div className="col-sm">
+              <div className="dashboard-weather-container">
+                <br></br>
+                {weather?.main !== undefined ?
+                  <>
+                    <Link to="/weather" id="dashboard-weather-link">
+                      <div id="dashboard-weather-location">{weather.name}</div>
+                      <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px", margin: "0 auto" }} />
+                      <div className="weather-main-temp" id="dashboard-weather-main-temp">{weather.main.temp} &deg;F </div>
+                      <br></br>
+                    </Link>
+                  </> :
+                  <div>
+                    <div style={{ fontSize: "15px" }}>Weather</div>
+                    <br></br>
+                    <Form onSubmit={e => this.handleSubmit(e)}>
+                      <input type="text" name="search" className="searchForm" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
+                      <Button variant="primary" className="searchButton" type="submit" onClick={e => this.handleSubmit(e)}>
+                        <FontAwesomeIcon icon={faSearch} />
+                      </Button>
+                    </Form>
+                    <br></br>
+                  </div>
+                }
               </div>
             </div>
           </div>
         </div>
+        <div id="dashboard-divider"></div>
+        <NewsShow article={article} />
       </>
     )
   }
@@ -157,4 +147,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default compose(withRouter, connect(mapStateToProps, { getWeatherForecastFromLocation, getWeatherForecastFromSearch, getTopNews, formatDate }))(Dashboard)
+export default compose(withRouter, connect(mapStateToProps, { getWeatherForecastFromLocation, getWeatherForecastFromSearch, getTopNews, formatDate, randomAffirmations }))(Dashboard)

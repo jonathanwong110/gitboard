@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 import { getTopNews } from '../../redux/News/actions'
 import NewsShow from './NewsShow'
-import { capitalizeFirstLetter } from '../Display/DisplayFunctions'
+import { capitalizeFirstLetter } from '../Misc/MiscFunctions'
 
 class News extends Component {
 
@@ -51,7 +51,7 @@ class News extends Component {
           </div>
         }
         <div id="news-section-nav" className="container-fluid">
-          <div className="row">
+          <div className="row justify-content-md-center">
             <div className="col-sm">
               <Link to="/news/home" onClick={e => this.changeToSection(e)}>
                 <button className="news-section-button">
