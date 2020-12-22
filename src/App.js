@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard/index'
 import Weather from './components/Weather/index'
 import News from './components/News/index'
 import Stocks from './components/Stocks/index'
+import Wellness from './components/Wellness/index'
 
 class App extends Component {
 
@@ -45,6 +46,7 @@ class App extends Component {
             <Route exact path="/news" component={News} />
             <Route exact path="/news/:section" component={News} />
             <Route exact path="/stocks" component={Stocks} />
+            <Route exact path="/wellness" component={Wellness} />
           </Switch>
         </div>
       </BrowserRouter>

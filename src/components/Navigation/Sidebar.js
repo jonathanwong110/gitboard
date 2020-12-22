@@ -9,8 +9,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
+import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons'
+import { Tooltip } from '@material-ui/core'
 
 const drawerWidth = 240;
 
@@ -68,7 +70,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
   },
   content: {
@@ -137,36 +138,54 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           <Link to="/dashboard" className="component-link">
-            <ListItem button key="Dashboard">
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItem>
+            <Tooltip title="Dashboard" placement="right" arrow>
+              <ListItem button key="Dashboard">
+                <ListItemIcon>
+                  <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItem>
+            </Tooltip>
           </Link>
           <Link to="/weather" className="component-link">
-            <ListItem button key="Weather">
-              <ListItemIcon>
-                <WbSunnyIcon />
-              </ListItemIcon>
-              <ListItemText primary="Weather" />
-            </ListItem>
+            <Tooltip title="Weather" placement="right" arrow>
+              <ListItem button key="Weather">
+                <ListItemIcon>
+                  <WbSunnyIcon />
+                </ListItemIcon>
+                <ListItemText primary="Weather" />
+              </ListItem>
+            </Tooltip>
           </Link>
           <Link to="/news" className="component-link">
-            <ListItem button key="News">
-              <ListItemIcon>
-                <FontAwesomeIcon icon={faNewspaper} style={{ height: '24px', width: '24px' }} />
-              </ListItemIcon>
-              <ListItemText primary="News" />
-            </ListItem>
+            <Tooltip title="News" placement="right" arrow>
+              <ListItem button key="News">
+                <ListItemIcon>
+                  <FontAwesomeIcon icon={faNewspaper} style={{ height: '24px', width: '24px' }} />
+                </ListItemIcon>
+                <ListItemText primary="News" />
+              </ListItem>
+            </Tooltip>
           </Link>
           <Link to="/stocks" className="component-link">
-            <ListItem button key="Stocks">
-              <ListItemIcon>
-                <ShowChartIcon />
-              </ListItemIcon>
-              <ListItemText primary="Stocks" />
-            </ListItem>
+            <Tooltip title="Stocks" placement="right" arrow>
+              <ListItem button key="Stocks">
+                <ListItemIcon>
+                  <ShowChartIcon />
+                </ListItemIcon>
+                <ListItemText primary="Stocks" />
+              </ListItem>
+            </Tooltip>
+          </Link>
+          <Link to="/wellness" className="component-link">
+            <Tooltip title="Wellness" placement="right" arrow>
+              <ListItem button key="Wellness">
+                <ListItemIcon>
+                  <DonutLargeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Wellness" />
+              </ListItem>
+            </Tooltip>
           </Link>
         </List>
       </Drawer>

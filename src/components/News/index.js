@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 import { getTopNews } from '../../redux/News/actions'
 import NewsShow from './NewsShow'
+import NewsCategory from './NewsCategory'
 import { capitalizeFirstLetter } from '../Misc/MiscFunctions'
 
 class News extends Component {
@@ -50,45 +51,7 @@ class News extends Component {
             View the Top New York Times Articles on {capitalizeFirstLetter(match.params?.section)}!
           </div>
         }
-        <div id="news-section-nav" className="container-fluid">
-          <div className="row justify-content-md-center">
-            <div className="col-sm">
-              <Link to="/news/home" onClick={e => this.changeToSection(e)}>
-                <button className="news-section-button">
-                  Home
-                </button>
-              </Link>
-            </div>
-            <div className="col-sm">
-              <Link to="/news/business" onClick={e => this.changeToSection(e)}>
-                <button className="news-section-button">
-                  Business
-                </button>
-              </Link>
-            </div>
-            <div className="col-sm">
-              <Link to="/news/science" onClick={e => this.changeToSection(e)}>
-                <button className="news-section-button">
-                  Science
-                </button>
-              </Link>
-            </div>
-            <div className="col-sm">
-              <Link to="/news/technology" onClick={e => this.changeToSection(e)}>
-                <button className="news-section-button">
-                  Tech
-                </button>
-              </Link>
-            </div>
-            <div className="col-sm">
-              <Link to="/news/politics" onClick={e => this.changeToSection(e)}>
-                <button className="news-section-button">
-                  Politics
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
+        <NewsCategory match={match} changeToSection={this.changeToSection}/>
         <div style={{ height: "40px" }}></div>
         {news.results.map((article, index) => {
           return (
