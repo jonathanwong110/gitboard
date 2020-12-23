@@ -20,6 +20,7 @@ html, body {
 .page-heading {
   font-size: 30px;
   margin-bottom: 20px;
+  width: auto;
 }
 
 .page-subheading {
@@ -115,6 +116,8 @@ html, body {
   margin-bottom: 20px;
 }
 
+/* Dashboard Time */
+
 #today-day, #today-date, #dashboard-weather-link, #dashboard-weather-main-temp {
   margin: 0 auto;
 }
@@ -126,6 +129,34 @@ html, body {
 
 #today-date {
   font-size: 17px;
+}
+
+@media (min-width: 576px) and (max-width: 661px) {
+  #today-date {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 662px) {
+  #today-date {
+    margin-bottom: 20px;
+  }
+}
+
+#calendar-modal {
+  width: 350px;
+}
+
+@media (max-width: 435px) {
+  #calendar-modal {
+    width: 80%;
+  }
+}
+
+@media (max-width: 575px) {
+  #calendar-modal {
+    margin-left: 17%;
+  }
 }
 
 /* Dashboard Weather */
@@ -263,7 +294,7 @@ html, body {
   }
 }
 
-.news-section-button {
+.news-section-button, #calendar-button {
   width: 100px;
   background-color: #003380;
   border: 1px solid #003380;
@@ -273,7 +304,7 @@ html, body {
   outline: none;
 }
 
-.news-section-button:hover {
+.news-section-button:hover, #calendar-button:hover {
   background-color: #e6e6e6;
   color: #003380;
   border: 1px solid #e6e6e6;

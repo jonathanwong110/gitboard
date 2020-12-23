@@ -7,15 +7,17 @@ import { getTopNews } from '../../redux/News/actions'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Form, Image } from 'react-bootstrap'
-import { formatDate, getGreetingForTimeOfDay, getDayName, randomAffirmations } from '../Misc/MiscFunctions'
+import { formatDate, getGreetingForTimeOfDay, getDayName } from '../Misc/MiscFunctions'
 import NewsShow from '../News/NewsShow'
+import MyCalendar from './MyCalendar'
 
 class Dashboard extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      date: new Date().toLocaleString().substring(0, 10),
+      currentDate: new Date().toLocaleString().substring(0, 10),
+      currentTime: new Date().toLocaleTimeString()
     };
   }
 
@@ -25,6 +27,11 @@ class Dashboard extends Component {
       this.props.getWeatherForecastFromLocation(coordinates.latitude, coordinates.longitude)
     }
     this.props.getTopNews('home')
+    setInterval(() => {
+      this.setState({
+        currentTime : new Date().toLocaleTimeString()
+      })
+    }, 1000)
   }
 
   handleChange = (e) => {
@@ -69,7 +76,6 @@ class Dashboard extends Component {
     return (
       <>
         <div className="page-heading"> {getGreetingForTimeOfDay()} </div>
-        <div className="page-subheading"> {randomAffirmations()} </div>
         <br></br>
         <div className="container-fluid" id="dashboard-first-row">
           <div className="row row-cols-sm-2">
@@ -80,8 +86,9 @@ class Dashboard extends Component {
                   {getDayName(today)}
                 </div>
                 <div id="today-date">
-                  {formatDate(this.state.date)}
+                  {formatDate(this.state.currentDate)}
                 </div>
+                <MyCalendar currentTime={this.state.currentTime} dayOfTheWeek={getDayName(today)}/>
               </div>
             </div>
             <div className="col-sm">
@@ -100,11 +107,11 @@ class Dashboard extends Component {
                     <div style={{ fontSize: "20px" }}>Weather</div>
                     <br></br>
                     <Form>
-                      <div style={{margin: "0 auto"}}>
-                      <input type="text" name="search" className="searchForm" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
-                      <Button variant="primary" className="searchButton" type="submit" onClick={e => this.handleSubmit(e)}>
-                        <FontAwesomeIcon icon={faSearch} />
-                      </Button>
+                      <div style={{ margin: "0 auto" }}>
+                        <input type="text" name="search" className="searchForm" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
+                        <Button variant="primary" className="searchButton" type="submit" onClick={e => this.handleSubmit(e)}>
+                          <FontAwesomeIcon icon={faSearch} />
+                        </Button>
                       </div>
                     </Form>
                     <br></br>
@@ -128,4 +135,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default compose(withRouter, connect(mapStateToProps, { getWeatherForecastFromLocation, getWeatherForecastFromSearch, getTopNews, formatDate, getGreetingForTimeOfDay, getDayName, randomAffirmations }))(Dashboard)
+export default compose(withRouter, connect(mapStateToProps, { getWeatherForecastFromLocation, getWeatherForecastFromSearch, getTopNews, formatDate, getGreetingForTimeOfDay, getDayName }))(Dashboard)

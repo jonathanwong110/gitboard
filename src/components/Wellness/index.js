@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Image } from 'react-bootstrap'
+import { randomAffirmations } from '../Misc/MiscFunctions'
 
 class Wellness extends Component {
 
@@ -45,7 +46,7 @@ class Wellness extends Component {
       <>
         <div className="page-heading">Daily Breathing Exercise</div>
         { minutes === 0 && seconds === 0
-          ? <div className="page-subheading"> Completed Great Work! </div> :
+          ? <h2 className="page-subheading"> You've Completed It! Great Job! </h2> :
           <div>
             <h2 className="page-subheading"> Time Remaining: </h2>
             <h2 className="page-subheading">{minutes}:{seconds < 10 ? `0${seconds}` : seconds} </h2>

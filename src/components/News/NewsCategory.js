@@ -13,35 +13,35 @@ export default function NewsCategory(props) {
             <Link to="/news/home" onClick={e => changeToSection(e)}>
               <button className="news-section-button">
                 Home
-                </button>
+              </button>
             </Link>
           </div>
           <div className="col-sm">
             <Link to="/news/business" onClick={e => changeToSection(e)}>
               <button className="news-section-button">
                 Business
-                </button>
+              </button>
             </Link>
           </div>
           <div className="col-sm">
             <Link to="/news/science" onClick={e => changeToSection(e)}>
               <button className="news-section-button">
                 Science
-                </button>
+              </button>
             </Link>
           </div>
           <div className="col-sm">
             <Link to="/news/technology" onClick={e => changeToSection(e)}>
               <button className="news-section-button">
                 Tech
-                </button>
+              </button>
             </Link>
           </div>
           <div className="col-sm">
             <Link to="/news/politics" onClick={e => changeToSection(e)}>
               <button className="news-section-button">
                 Politics
-                </button>
+              </button>
             </Link>
           </div>
         </div>
