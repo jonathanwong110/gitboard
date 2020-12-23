@@ -1,16 +1,61 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
-import { compose } from 'redux'
+import React, { Component } from 'react'
+import { Image } from 'react-bootstrap'
 
 class Wellness extends Component {
 
+  constructor() {
+    super()
+    this.state = {
+      minutes: 1,
+      seconds: 0,
+    }
+  }
+
+  componentDidMount() {
+    this.myInterval = setInterval(() => {
+      const { minutes, seconds } = this.state
+
+      if (seconds > 0) {
+        this.setState(({ seconds }) => ({
+          seconds: seconds - 1
+        }))
+      }
+      if (seconds === 0) {
+        if (minutes === 0) {
+          clearInterval(this.myInterval)
+        } else {
+          this.setState(({ minutes }) => ({
+            minutes: minutes - 1,
+            seconds: 59
+          }))
+        }
+      }
+    }, 1000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.myInterval)
+  }
+
   render() {
 
+    let { minutes, seconds } = this.state
+
     return (
-      <div className="page-heading">Wellness</div>
+      <>
+        <div className="page-heading">Daily Breathing Exercise</div>
+        { minutes === 0 && seconds === 0
+          ? <div className="page-subheading"> Completed Great Work! </div> :
+          <div>
+            <h2 className="page-subheading"> Time Remaining: </h2>
+            <h2 className="page-subheading">{minutes}:{seconds < 10 ? `0${seconds}` : seconds} </h2>
+          </div>
+        }
+        <p>Each Back and Forth is an Inhale and Exhale</p>
+        <Image src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" alt="loader" style={{ margin: "0 auto" }} />
+      </>
     )
   }
 }
 
-export default compose(withRouter, connect(null, {}))(Wellness)
+export default Wellness

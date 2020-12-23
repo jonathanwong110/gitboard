@@ -6,10 +6,6 @@ export default function NewsShow(props) {
 
   const { article } = props
 
-  if (article.multimedia === null) {
-    return <div>No Image to see</div>
-  }
-
   if (article.created_date === undefined) {
     return <div>No Date of Article to see</div>
   }
@@ -20,7 +16,8 @@ export default function NewsShow(props) {
         <div className="row no-gutters">
           <div className="col-md-5">
             <a href={article.url} target='_blank' rel="noopener noreferrer">
-              <Image src={article.multimedia[0].url} className="card-img article-picture" alt="Article Picture" />
+              {article?.multimedia !== null ? <Image src={article?.multimedia[0].url} className="card-img article-picture" alt="Article Picture" /> :
+                <div className="card-img article-picture"></div>}
             </a>
           </div>
           <div className="col-md-7">

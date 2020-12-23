@@ -7,7 +7,7 @@ import { getTopNews } from '../../redux/News/actions'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Form, Image } from 'react-bootstrap'
-import { formatDate, randomAffirmations } from '../Misc/MiscFunctions'
+import { formatDate, getGreetingForTimeOfDay, getDayName, randomAffirmations } from '../Misc/MiscFunctions'
 import NewsShow from '../News/NewsShow'
 
 class Dashboard extends Component {
@@ -54,25 +54,6 @@ class Dashboard extends Component {
     }
   }
 
-  getDayName = (number) => {
-    let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    return days[number];
-  }
-
-  getGreetingForTimeOfDay = () => {
-    let timeOfDay = new Date()
-    let hourOfDay = timeOfDay.getHours()
-    if (hourOfDay > 0 && hourOfDay < 6) {
-      return "Mornin' Sunshine"
-    } else if (hourOfDay > 6 && hourOfDay < 12) {
-      return "Good Morning"
-    } else if (hourOfDay > 12 && hourOfDay < 17) {
-      return "Good Afternoon"
-    } else {
-      return "Good Evening"
-    }
-  }
-
   render() {
 
     let today = new Date().getDay();
@@ -87,10 +68,8 @@ class Dashboard extends Component {
 
     return (
       <>
-        <div className="page-heading">
-          {this.getGreetingForTimeOfDay()}
-        </div>
-        <div className="page-subheading">{randomAffirmations()}</div>
+        <div className="page-heading"> {getGreetingForTimeOfDay()} </div>
+        <div className="page-subheading"> {randomAffirmations()} </div>
         <br></br>
         <div className="container-fluid" id="dashboard-first-row">
           <div className="row row-cols-sm-2">
@@ -98,7 +77,7 @@ class Dashboard extends Component {
               <div className="today-information">
                 <br></br>
                 <div id="today-day">
-                  {this.getDayName(today)}
+                  {getDayName(today)}
                 </div>
                 <div id="today-date">
                   {formatDate(this.state.date)}
@@ -118,13 +97,15 @@ class Dashboard extends Component {
                     </Link>
                   </> :
                   <div>
-                    <div style={{ fontSize: "15px" }}>Weather</div>
+                    <div style={{ fontSize: "20px" }}>Weather</div>
                     <br></br>
-                    <Form onSubmit={e => this.handleSubmit(e)}>
+                    <Form>
+                      <div style={{margin: "0 auto"}}>
                       <input type="text" name="search" className="searchForm" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
                       <Button variant="primary" className="searchButton" type="submit" onClick={e => this.handleSubmit(e)}>
                         <FontAwesomeIcon icon={faSearch} />
                       </Button>
+                      </div>
                     </Form>
                     <br></br>
                   </div>
@@ -147,4 +128,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default compose(withRouter, connect(mapStateToProps, { getWeatherForecastFromLocation, getWeatherForecastFromSearch, getTopNews, formatDate, randomAffirmations }))(Dashboard)
+export default compose(withRouter, connect(mapStateToProps, { getWeatherForecastFromLocation, getWeatherForecastFromSearch, getTopNews, formatDate, getGreetingForTimeOfDay, getDayName, randomAffirmations }))(Dashboard)

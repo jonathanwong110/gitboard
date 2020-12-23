@@ -217,7 +217,7 @@ html, body {
 .searchForm {
   position: relative;
   top: 3px;
-  width: 75%;
+  width: 60%;
   height: 36px;
   max-width: 260px;
 }

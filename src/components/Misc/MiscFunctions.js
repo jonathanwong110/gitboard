@@ -2,9 +2,28 @@ export const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+export const getGreetingForTimeOfDay = () => {
+  let timeOfDay = new Date()
+  let hourOfDay = timeOfDay.getHours()
+  if (hourOfDay > 5 && hourOfDay < 8) {
+    return "Mornin' Sunshine"
+  } else if (hourOfDay > 8 && hourOfDay < 12) {
+    return "Good Morning"
+  } else if (hourOfDay > 12 && hourOfDay < 17) {
+    return "Good Afternoon"
+  } else {
+    return "Good Evening"
+  }
+}
+
 export const formatDate = (string) => {
   let options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(string).toLocaleDateString([], options);
+}
+
+export const getDayName = (number) => {
+  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  return days[number];
 }
 
 export const randomAffirmations = () => {
