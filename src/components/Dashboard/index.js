@@ -27,9 +27,9 @@ class Dashboard extends Component {
       this.props.getWeatherForecastFromLocation(coordinates.latitude, coordinates.longitude)
     }
     this.props.getTopNews('home')
-    setInterval(() => {
+    this.myInterval = setInterval(() => {
       this.setState({
-        currentTime : new Date().toLocaleTimeString()
+        currentTime: new Date().toLocaleTimeString()
       })
     }, 1000)
   }
@@ -53,12 +53,11 @@ class Dashboard extends Component {
     this.setState({
       searchQuery
     })
-    if (searchQuery.length !== 0) {
-      this.props.getWeatherForecastFromSearch(searchQuery)
-    } else {
-      let coordinates = JSON.parse(localStorage.getItem('location'))
-      this.props.getWeatherForecastFromLocation(coordinates.latitude, coordinates.longitude)
-    }
+    this.props.getWeatherForecastFromSearch(searchQuery)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.myInterval)
   }
 
   render() {
@@ -83,12 +82,12 @@ class Dashboard extends Component {
               <div className="today-information">
                 <br></br>
                 <div id="today-day">
-                  {getDayName(today)}
+                  {new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'})}
                 </div>
                 <div id="today-date">
                   {formatDate(this.state.currentDate)}
                 </div>
-                <MyCalendar currentTime={this.state.currentTime} dayOfTheWeek={getDayName(today)}/>
+                <MyCalendar currentTime={this.state.currentTime} dayOfTheWeek={getDayName(today)} />
               </div>
             </div>
             <div className="col-sm">
@@ -99,7 +98,7 @@ class Dashboard extends Component {
                     <Link to="/weather" id="dashboard-weather-link">
                       <div id="dashboard-weather-location">{weather.name}</div>
                       <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px", margin: "0 auto" }} />
-                      <div className="weather-main-temp" id="dashboard-weather-main-temp">{weather.main.temp} &deg;F </div>
+                      <div id="dashboard-weather-main-temp">{weather.main.temp} &deg;F </div>
                       <br></br>
                     </Link>
                   </> :

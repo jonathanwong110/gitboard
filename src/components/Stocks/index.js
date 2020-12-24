@@ -32,12 +32,6 @@ class Stocks extends Component {
     let exactClosingPriceValueForLastDate = stocks[stockFiveMinsIntervalInfo][closingTimeKeyForLastDate][closingPriceKey]
     let roundedClosingPriceValueForLastDate = Math.round(exactClosingPriceValueForLastDate * 100) / 100
 
-    // let upOrDownInitialPercentageDifference = ((exactClosingPriceValueForSecondToLastDate/exactClosingPriceValueForLastDate) - 1)
-
-    // let upOrDownFinalPercentageDifference = Math.round(upOrDownInitialPercentageDifference * 100) / 100
-
-    // console.log(upOrDownFinalPercentageDifference)
-
     let upOrDownPlusMinusDifference = roundedClosingPriceValueForLastDate - roundedClosingPriceValueForSecondToLastDay
 
     let roundedupOrDownPlusMinusDifference = Math.round(upOrDownPlusMinusDifference * 100) / 100
@@ -45,7 +39,7 @@ class Stocks extends Component {
     return (
       <>
         <div className="page-heading">Stocks</div>
-        <div>As of {stocks[metaData][lastRefreshed]}</div>
+        <div className="page-subheading">As of {stocks[metaData][lastRefreshed]}</div>
         <br></br>
         <Container id="stocks-container">
           <Row>

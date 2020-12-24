@@ -43,15 +43,15 @@ class News extends Component {
       <>
         <div className="page-heading">News</div>
         {match.params?.section === undefined || match.params?.section === 'home' ?
-          <div className="page-subheading">
+          <div className="page-subheading" style={{ minHeight: "100px" }}>
             View the Articles on New York Times' Front Page
           </div>
           :
-          <div className="page-subheading">
+          <div className="page-subheading" style={{ minHeight: "100px" }}>
             View the Top New York Times Articles on {capitalizeFirstLetter(match.params?.section)}!
           </div>
         }
-        <NewsCategory match={match} changeToSection={this.changeToSection}/>
+        <NewsCategory match={match} changeToSection={this.changeToSection} />
         <div style={{ height: "40px" }}></div>
         {news.results.map((article, index) => {
           return (
