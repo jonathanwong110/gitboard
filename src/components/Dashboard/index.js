@@ -17,7 +17,6 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       currentDate: new Date().toLocaleString().substring(0, 10),
-      currentTime: new Date().toLocaleTimeString()
     };
   }
 
