@@ -5,6 +5,7 @@ html, body {
 
 :root {
   --primary-color: #003380;
+  --hover-color: #e6e6e6;
 }
 
 .root {
@@ -17,6 +18,12 @@ html, body {
   height: 100vh;
   width: 100vw;
   background-color: white;
+}
+
+/* Navigation */
+
+.MuiToolbar-root.MuiToolbar-regular.MuiToolbar-gutters {
+  padding: 0 15px;
 }
 
 /* Page Heading */
@@ -134,6 +141,12 @@ html, body {
   #today-date {
     margin-bottom: 20px;
   }
+}
+
+#calendar-button:hover {
+  background-color: var(--hover-color);
+  border: 1px solid var(--hover-color);
+  color: var(--primary-color);
 }
 
 #calendar-modal {
@@ -293,6 +306,10 @@ html, body {
   border: 1px solid var(--primary-color) !important;
 }
 
+.search-button:hover {
+  color: var(--hover-color) !important;
+}
+
 /* News */
 
 @media (max-width: 767px) {
@@ -330,10 +347,10 @@ html, body {
   outline: none;
 }
 
-.news-section-button:hover, #calendar-button:hover {
-  background-color: #e6e6e6;
+.news-section-button:hover {
+  background-color: var(--hover-color);
+  border: 1px solid var(--hover-color);
   color: var(--primary-color);
-  border: 1px solid #e6e6e6;
 }
 
 .news-section-button:focus {

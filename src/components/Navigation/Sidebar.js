@@ -8,10 +8,9 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
-import ShowChartIcon from '@material-ui/icons/ShowChart';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faNewspaper } from '@fortawesome/free-solid-svg-icons'
+import { faNewspaper, faChartLine } from '@fortawesome/free-solid-svg-icons'
 import { Tooltip } from '@material-ui/core'
 
 const drawerWidth = 240;
@@ -171,7 +170,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Stocks</div>} placement="right" arrow>
               <ListItem button key="Stocks">
                 <ListItemIcon>
-                  <ShowChartIcon />
+                <FontAwesomeIcon icon={faChartLine} style={{ height: '24px', width: '24px' }} />
                 </ListItemIcon>
                 <ListItemText primary="Stocks" />
               </ListItem>
