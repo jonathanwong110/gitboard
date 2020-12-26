@@ -3,6 +3,10 @@ html, body {
   background-color: white;
 }
 
+:root {
+  --primary-color: #003380;
+}
+
 .root {
   height: 100%;
 }
@@ -262,7 +266,7 @@ html, body {
   }
 }
 
-.searchForm {
+.search-form {
   position: relative;
   top: 3px;
   width: 60%;
@@ -270,21 +274,23 @@ html, body {
   max-width: 260px;
 }
 
-.searchForm::-webkit-input-placeholder {
+.search-form::-webkit-input-placeholder {
   padding-left: 5px;
 }
 
-.searchForm:focus {
-  border: 1px solid #286EFA !important;
+.search-form:focus {
+  border: 2px solid var(--primary-color) !important;
   outline-width: 0;
 }
 
-.searchButton {
+.search-button {
   position: relative;
   top: 4px;
   color: white;
   height: 36px;
   margin-bottom: 6px;
+  background-color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
 }
 
 /* News */
@@ -316,8 +322,8 @@ html, body {
 
 .news-section-button, #calendar-button {
   width: 100px;
-  background-color: #003380;
-  border: 1px solid #003380;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
   color: white;
   height: 40px;
   border-radius: 5px;
@@ -326,7 +332,7 @@ html, body {
 
 .news-section-button:hover, #calendar-button:hover {
   background-color: #e6e6e6;
-  color: #003380;
+  color: var(--primary-color);
   border: 1px solid #e6e6e6;
 }
 
@@ -398,70 +404,6 @@ html, body {
 }
 
 /* Stocks */
-
-/* #stocks-container {
-  border-radius: 5px;
-  color: white;
-  width: 80%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-@media (max-width: 399px) {
-  #stocks-container {
-    margin-left: 22%;
-    width: 70%;
-  }
-}
-
-@media (min-width: 400px) and (max-width: 549px) {
-  #stocks-container {
-    margin-left: 15%;
-    width: 80%;
-  }
-}
-
-@media (min-width: 550px) and (max-width: 1000px) {
-  #stocks-container {
-    width: 60%;
-  }
-}
-
-.stocks-col-title {
-  font-size: 20px;
-  background-color: #003380;
-  white-space: normal;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.stocks-col-info {
-  font-size: 15px;
-  background-color: #005ce6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-@media (max-width: 449px) {
-  .stocks-col-title {
-    font-size: 13px;
-  }
-  .stocks-col-info {
-    font-size: 13px;
-  }
-}
-
-@media (min-width: 450px) and (max-width: 600px) {
-  .stocks-col-title {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 500px) {
-  #stocks-container div div {
-    word-break: break-all;
-  }
-} */
 
 #stocks-container div iframe {
   min-height: 710px;

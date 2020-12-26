@@ -62,6 +62,7 @@ class News extends Component {
       </>
     )
   }
+  
 }
 
 const mapStateToProps = (state) => {

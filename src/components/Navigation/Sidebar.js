@@ -138,7 +138,7 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           <Link to="/dashboard" className="component-link">
-            <Tooltip title="Dashboard" placement="right" arrow>
+            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Dashboard</div>} placement="right" arrow>
               <ListItem button key="Dashboard">
                 <ListItemIcon>
                   <DashboardIcon />
@@ -148,7 +148,7 @@ export default function MiniDrawer() {
             </Tooltip>
           </Link>
           <Link to="/weather" className="component-link">
-            <Tooltip title="Weather" placement="right" arrow>
+            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Weather</div>} placement="right" arrow>
               <ListItem button key="Weather">
                 <ListItemIcon>
                   <WbSunnyIcon />
@@ -158,7 +158,7 @@ export default function MiniDrawer() {
             </Tooltip>
           </Link>
           <Link to="/news" className="component-link">
-            <Tooltip title="News" placement="right" arrow>
+            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>News</div>} placement="right" arrow>
               <ListItem button key="News">
                 <ListItemIcon>
                   <FontAwesomeIcon icon={faNewspaper} style={{ height: '24px', width: '24px' }} />
@@ -168,7 +168,7 @@ export default function MiniDrawer() {
             </Tooltip>
           </Link>
           <Link to="/stocks" className="component-link">
-            <Tooltip title="Stocks" placement="right" arrow>
+            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Stocks</div>} placement="right" arrow>
               <ListItem button key="Stocks">
                 <ListItemIcon>
                   <ShowChartIcon />
@@ -178,7 +178,7 @@ export default function MiniDrawer() {
             </Tooltip>
           </Link>
           <Link to="/wellness" className="component-link">
-            <Tooltip title="Wellness" placement="right" arrow>
+            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Wellness</div>} placement="right" arrow>
               <ListItem button key="Wellness">
                 <ListItemIcon>
                   <DonutLargeIcon />

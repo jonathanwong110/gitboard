@@ -81,7 +81,7 @@ class Dashboard extends Component {
               <div className="today-information">
                 <br></br>
                 <div id="today-day">
-                  {new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'})}
+                  {new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })}
                 </div>
                 <div id="today-date">
                   {formatDate(this.state.currentDate)}
@@ -95,10 +95,12 @@ class Dashboard extends Component {
                 {weather?.main !== undefined ?
                   <>
                     <Link to="/weather" id="dashboard-weather-link">
-                      <div id="dashboard-weather-location">{weather.name}</div>
-                      <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px", margin: "0 auto" }} />
-                      <div id="dashboard-weather-main-temp">{weather.main.temp} &deg;F </div>
-                      <br></br>
+                      <div id="dashboard-weather-wrapper">
+                        <div id="dashboard-weather-location">{weather.name}</div>
+                        <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px", margin: "0 auto" }} />
+                        <div id="dashboard-weather-main-temp">{weather.main.temp} &deg;F </div>
+                        <br></br>
+                      </div>
                     </Link>
                   </> :
                   <div>
@@ -124,6 +126,7 @@ class Dashboard extends Component {
       </>
     )
   }
+  
 }
 
 const mapStateToProps = (state) => {

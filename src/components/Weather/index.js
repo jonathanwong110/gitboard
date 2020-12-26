@@ -74,8 +74,8 @@ class Weather extends Component {
         <div className="weather-container">
           <br></br>
           <Form>
-            <input type="text" name="search" className="searchForm" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
-            <Button variant="primary" className="searchButton" type="submit" onClick={e => this.handleSubmit(e)}>
+            <input type="text" name="search" className="search-form" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
+            <Button className="search-button" type="submit" onClick={e => this.handleSubmit(e)}>
               <FontAwesomeIcon icon={faSearch} />
             </Button>
           </Form>

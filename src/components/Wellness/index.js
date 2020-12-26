@@ -57,6 +57,7 @@ class Wellness extends Component {
       </>
     )
   }
+  
 }
 
 export default Wellness

@@ -11,15 +11,6 @@ const NotFound = () => (<div style={{fontSize: "20px"}}>This page is not availab
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      latitude: null,
-      longitude: null,
-      error: null,
-    };
-  }
-
   componentDidMount() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (position) {
@@ -53,6 +44,7 @@ class App extends Component {
       </BrowserRouter>
     )
   }
+  
 }
 
 export default App
