@@ -108,8 +108,8 @@ class Dashboard extends Component {
                     <br></br>
                     <Form>
                       <div style={{ margin: "0 auto" }}>
-                        <input type="text" name="search" className="searchForm" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
-                        <Button variant="primary" className="searchButton" type="submit" onClick={e => this.handleSubmit(e)}>
+                        <input type="text" name="search" className="search-form" placeholder="Search a City" onKeyPress={this.onKeyPress} onChange={e => this.handleChange(e)} />
+                        <Button variant="primary" className="search-button" type="submit" onClick={e => this.handleSubmit(e)}>
                           <FontAwesomeIcon icon={faSearch} />
                         </Button>
                       </div>

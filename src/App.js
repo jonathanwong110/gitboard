@@ -7,6 +7,7 @@ import Weather from './components/Weather/index'
 import News from './components/News/index'
 import Stocks from './components/Stocks/index'
 import Wellness from './components/Wellness/index'
+import Affirmations from './components/Affirmations/index'
 const NotFound = () => (<div style={{fontSize: "20px"}}>This page is not available</div>)
 
 class App extends Component {
@@ -38,6 +39,7 @@ class App extends Component {
             <Route exact path="/news/:section" component={News} />
             <Route exact path="/stocks" component={Stocks} />
             <Route exact path="/wellness" component={Wellness} />
+            <Route exact path="/affirmations" component={Affirmations} />
             <Route component={NotFound} />
           </Switch>
         </div>

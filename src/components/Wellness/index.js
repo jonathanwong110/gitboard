@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Image } from 'react-bootstrap'
-import { randomAffirmations } from '../Misc/MiscFunctions'
 
 class Wellness extends Component {
 

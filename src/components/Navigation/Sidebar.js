@@ -9,6 +9,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNewspaper, faChartLine } from '@fortawesome/free-solid-svg-icons'
 import { Tooltip } from '@material-ui/core'
@@ -183,6 +184,16 @@ export default function MiniDrawer() {
                   <DonutLargeIcon />
                 </ListItemIcon>
                 <ListItemText primary="Wellness" />
+              </ListItem>
+            </Tooltip>
+          </Link>
+          <Link to="/affirmations" className="component-link">
+            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Wellness</div>} placement="right" arrow>
+              <ListItem button key="Affirmations">
+                <ListItemIcon>
+                  <FavoriteIcon />
+                </ListItemIcon>
+                <ListItemText primary="Affirmations" />
               </ListItem>
             </Tooltip>
           </Link>
