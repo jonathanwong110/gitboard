@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Drawer, AppBar, Toolbar, List, CssBaseline, Typography, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import HomeSharpIcon from '@material-ui/icons/HomeSharp';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import DashboardIcon from '@material-ui/icons/Dashboard';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -140,7 +140,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Dashboard</div>} placement="right" arrow>
               <ListItem button key="Dashboard">
                 <ListItemIcon>
-                  <DashboardIcon />
+                  <HomeSharpIcon />
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
               </ListItem>

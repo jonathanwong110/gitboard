@@ -13,30 +13,26 @@ export default function NewsShow(props) {
   return (
     <>
       <div className="card mb-3 article-individual-wrapper">
-        <div className="row no-gutters">
-          <div className="col-md-5">
-            <a href={article.url} target='_blank' rel="noopener noreferrer">
-              {article?.multimedia !== null ? <Image src={article?.multimedia[0].url} className="card-img article-picture" alt="Article Picture" /> :
-                <div className="card-img article-picture"></div>}
-            </a>
-          </div>
-          <div className="col-md-7">
-            <div className="card-body">
-              <h5 className="card-title article-title">
-                <a href={article.url} target='_blank' rel="noopener noreferrer">
+        <a href={article.url} target='_blank' rel="noopener noreferrer" className="article-link">
+          <div className="row no-gutters">
+            <div className="col-md-5">
+              {article?.multimedia !== null ? <Image src={article?.multimedia[0].url} className="card-img article-image" alt="Article Picture" /> :
+                <div className="card-img article-image"></div>}
+            </div>
+            <div className="col-md-7">
+              <div className="card-body">
+                <h5 className="card-title article-title">
                   {article.title}
-                </a>
-              </h5>
-              <p className="card-text" style={{ textAlign: "left" }}>
-                <small className="text-muted article-date">
-                  <a href={article.url} target='_blank' rel="noopener noreferrer">
+                </h5>
+                <p className="card-text" style={{ textAlign: "left" }}>
+                  <small className="text-muted article-date">
                     {formatDate(article.created_date)}
-                  </a>
-                </small>
-              </p>
+                  </small>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </>
   )
