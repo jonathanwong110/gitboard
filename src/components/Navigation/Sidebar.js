@@ -188,7 +188,7 @@ export default function MiniDrawer() {
             </Tooltip>
           </Link>
           <Link to="/affirmations" className="component-link">
-            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Wellness</div>} placement="right" arrow>
+            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Affirmations</div>} placement="right" arrow>
               <ListItem button key="Affirmations">
                 <ListItemIcon>
                   <FavoriteIcon />
