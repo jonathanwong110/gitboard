@@ -4,7 +4,7 @@ html, body {
 }
 
 :root {
-  --primary-color: #003380;
+  --primary-color: #0047b3;
   --hover-color: #e6e6e6;
 }
 
@@ -351,9 +351,7 @@ html, body {
 
 @media (min-width: 768px) {
   #news-section-nav {
-    width: 40%;
-    min-width: 600px;
-    max-width: 600px;
+    width: 600px;
     margin: 0 auto;
   }
   #news-section-nav div div {
