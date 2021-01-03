@@ -10,6 +10,7 @@ import { Button, Form, Image } from 'react-bootstrap'
 import { formatDate, getGreetingForTimeOfDay, getDayName } from '../Misc/MiscFunctions'
 import NewsShow from '../News/NewsShow'
 import MyCalendar from './MyCalendar'
+import StocksToolbar from './StocksToolbar'
 
 class Dashboard extends Component {
 
@@ -74,6 +75,7 @@ class Dashboard extends Component {
 
     return (
       <>
+        <StocksToolbar />
         <div className="page-heading"> {getGreetingForTimeOfDay()} </div>
         <br></br>
         <div className="container-fluid" id="dashboard-first-row">

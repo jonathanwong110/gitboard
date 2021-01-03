@@ -136,7 +136,7 @@ export default function MiniDrawer() {
           </IconButton>
         </div>
         <Divider />
-        <List>
+        <List id="sidebar-components">
           <Link to="/dashboard" className="component-link">
             <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Dashboard</div>} placement="right" arrow>
               <ListItem button key="Dashboard">

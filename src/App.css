@@ -40,6 +40,11 @@ html, body {
   color: white;
 }
 
+#sidebar-components {
+  position: relative;
+  bottom: 6px;
+}
+
 /* Page Heading */
 
 .page-heading {
@@ -140,6 +145,26 @@ html, body {
   margin-bottom: 20px;
 }
 
+/* Dashboard Stocks */
+
+@media (max-width: 599px) {
+  .stocks-toolbar {
+    position: relative;
+    left: 57px;
+    bottom: 33.55px;
+    max-width: calc(100% - 58px)
+  }
+}
+
+@media (min-width: 600px) {
+  .stocks-toolbar {
+    position: relative;
+    left: 57px;
+    bottom: 25.6px;
+    max-width: calc(100% - 58px)
+  }
+}
+
 /* Dashboard Time */
 
 #today-day, #today-date, #dashboard-weather-link, #dashboard-weather-main-temp {
@@ -191,12 +216,19 @@ html, body {
 
 /* Dashboard Weather */
 
+#dashboard-weather-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #dashboard-weather-link {
   color: black;
 }
 
 #dashboard-weather-location {
   font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #dashboard-weather-main-temp {
