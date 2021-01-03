@@ -17,8 +17,8 @@ class Weather extends Component {
   }
 
   componentDidMount() {
-    if (navigator.geolocation && localStorage.getItem('location')) {
-      let coordinates = JSON.parse(localStorage.getItem('location'))
+    if (navigator.geolocation && localStorage.getItem("location")) {
+      let coordinates = JSON.parse(localStorage.getItem("location"))
       this.props.getWeatherForecastFromLocation(coordinates.latitude, coordinates.longitude)
     }
   }
@@ -45,7 +45,7 @@ class Weather extends Component {
     if (searchQuery.length !== 0) {
       this.props.getWeatherForecastFromSearch(searchQuery)
     } else {
-      let coordinates = JSON.parse(localStorage.getItem('location'))
+      let coordinates = JSON.parse(localStorage.getItem("location"))
       this.props.getWeatherForecastFromLocation(coordinates.latitude, coordinates.longitude)
     }
   }

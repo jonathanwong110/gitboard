@@ -19,7 +19,7 @@ class App extends Component {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude
         }
-        localStorage.setItem('location', JSON.stringify(coordinates))
+        localStorage.setItem("location", JSON.stringify(coordinates))
       })
     }
   }

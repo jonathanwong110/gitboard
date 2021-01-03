@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class Stocks extends Component {
 
   componentDidMount() {
-    const script = document.createElement('script');
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js'
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
     script.async = true;
     script.innerHTML = JSON.stringify({})
     document.getElementById("stocks-container").appendChild(script);

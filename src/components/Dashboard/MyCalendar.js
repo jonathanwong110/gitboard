@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import Calendar from 'react-calendar';
 
-export default function MyCalendar(props) {
+export default function MyCalendar({ dayOfTheWeek, currentTime }) {
 
   const [show, setShow] = useState(false);
   const [value, onChange] = useState(new Date());
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  let { dayOfTheWeek, currentTime } = props
 
   return (
     <>

@@ -23,7 +23,9 @@ class Affirmations extends Component {
       <>
         <div className="page-heading">Affirmations</div>
         <div>
-          <button onClick={e => this.nextAffirmation(e)} id="affirmations-button" style={{ width: "150px" }}>Another one!</button>
+          <button onClick={e => this.nextAffirmation(e)} id="affirmations-button" style={{ width: "150px" }}>
+            Another one!
+          </button>
         </div>
         <div className="page-subheading">{this.state.affirmation}</div>
       </>

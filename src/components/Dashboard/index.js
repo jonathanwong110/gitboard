@@ -14,18 +14,19 @@ import MyCalendar from './MyCalendar'
 class Dashboard extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
+    this.myRef = React.createRef();
     this.state = {
       currentDate: new Date().toLocaleString().substring(0, 10),
     };
   }
 
   componentDidMount() {
-    if (navigator.geolocation && localStorage.getItem('location')) {
-      let coordinates = JSON.parse(localStorage.getItem('location'))
+    if (navigator.geolocation && localStorage.getItem("location")) {
+      let coordinates = JSON.parse(localStorage.getItem("location"))
       this.props.getWeatherForecastFromLocation(coordinates.latitude, coordinates.longitude)
     }
-    this.props.getTopNews('home')
+    this.props.getTopNews("home")
     this.myInterval = setInterval(() => {
       this.setState({
         currentTime: new Date().toLocaleTimeString()
@@ -126,7 +127,7 @@ class Dashboard extends Component {
       </>
     )
   }
-  
+
 }
 
 const mapStateToProps = (state) => {

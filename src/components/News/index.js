@@ -13,7 +13,7 @@ class News extends Component {
   componentDidMount() {
     let { match } = this.props
     if (match.params.section === undefined) {
-      this.props.getTopNews('home')
+      this.props.getTopNews("home")
     } else {
       this.props.getTopNews(match.params.section)
     }
