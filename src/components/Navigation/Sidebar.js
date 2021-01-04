@@ -94,22 +94,9 @@ export default function MiniDrawer() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
+      <AppBar position="fixed" className={clsx(classes.appBar, { [classes.appBarShift]: open, })}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
+          <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start" className={clsx(classes.menuButton, { [classes.hide]: open, })}>
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
@@ -117,19 +104,7 @@ export default function MiniDrawer() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
-        }}
-      >
+      <Drawer variant="permanent" className={clsx(classes.drawer, {[classes.drawerOpen]: open, [classes.drawerClose]: !open, })} classes={{paper: clsx({ [classes.drawerOpen]: open, [classes.drawerClose]: !open, }),}}>
         <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
@@ -171,7 +146,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Stocks</div>} placement="right" arrow>
               <ListItem button key="Stocks">
                 <ListItemIcon>
-                <FontAwesomeIcon icon={faChartLine} style={{ height: '24px', width: '24px' }} />
+                  <FontAwesomeIcon icon={faChartLine} style={{ height: '24px', width: '24px' }} />
                 </ListItemIcon>
                 <ListItemText primary="Stocks" />
               </ListItem>

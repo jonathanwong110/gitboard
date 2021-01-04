@@ -20,7 +20,7 @@ html, body {
   background-color: white;
 }
 
-/* Navigation */
+/* Sidebar */
 
 .MuiToolbar-root.MuiToolbar-regular.MuiToolbar-gutters {
   padding: 0 15px;
@@ -33,7 +33,7 @@ html, body {
 }
 
 .makeStyles-toolbar-9 {
-  background-color: var(--primary-color)
+  background-color: #003380
 }
 
 .makeStyles-toolbar-9 button span svg {

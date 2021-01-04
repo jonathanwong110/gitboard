@@ -44,19 +44,23 @@ class Wellness extends Component {
     return (
       <>
         <div className="page-heading">Daily Breathing Exercise</div>
+        <div className="page-subheading">Each Back and Forth is an Inhale and Exhale</div>
+        <br></br>
         { minutes === 0 && seconds === 0
-          ? <h2 className="page-subheading"> You've Completed It! Great Job! </h2> :
+          ?
           <div>
-            <h2 className="page-subheading"> Time Remaining: </h2>
-            <h2 className="page-subheading">{minutes}:{seconds < 10 ? `0${seconds}` : seconds} </h2>
+            <div className="page-subheading">You've Completed It! Great Job! </div>
+          </div> :
+          <div>
+            <div className="page-subheading"> Time Remaining: </div>
+            <div className="page-subheading">{minutes}:{seconds < 10 ? `0${seconds}` : seconds} </div>
           </div>
         }
-        <p style={{fontSize: "18px", width: "25%", margin: "20px auto", whiteSpace: "normal"}}>Each Back and Forth is an Inhale and Exhale</p>
-        <Image src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" alt="loader" style={{ margin: "0 auto" }} id="wellness-gif"/>
+        <Image src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" alt="loader" style={{ margin: "0 auto" }} id="wellness-gif" />
       </>
     )
   }
-  
+
 }
 
 export default Wellness

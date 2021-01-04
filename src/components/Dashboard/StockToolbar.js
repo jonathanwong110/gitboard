@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class StocksToolbar extends Component {
+class StockToolbar extends Component {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
@@ -46,4 +46,4 @@ class StocksToolbar extends Component {
   }
 }
 
-export default StocksToolbar
+export default StockToolbar
