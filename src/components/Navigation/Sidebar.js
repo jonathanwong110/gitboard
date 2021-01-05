@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Drawer, AppBar, Toolbar, List, CssBaseline, Typography, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import HomeSharpIcon from '@material-ui/icons/HomeSharp';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
-import DonutLargeIcon from '@material-ui/icons/DonutLarge';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faNewspaper, faChartLine } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faChartLine } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faNewspaper, faClock } from '@fortawesome/free-regular-svg-icons'
 import { Tooltip } from '@material-ui/core'
 
 const drawerWidth = 240;
@@ -104,7 +102,7 @@ export default function MiniDrawer() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" className={clsx(classes.drawer, {[classes.drawerOpen]: open, [classes.drawerClose]: !open, })} classes={{paper: clsx({ [classes.drawerOpen]: open, [classes.drawerClose]: !open, }),}}>
+      <Drawer variant="permanent" className={clsx(classes.drawer, { [classes.drawerOpen]: open, [classes.drawerClose]: !open, })} classes={{ paper: clsx({ [classes.drawerOpen]: open, [classes.drawerClose]: !open, }), }}>
         <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
@@ -113,17 +111,17 @@ export default function MiniDrawer() {
         <Divider />
         <List id="sidebar-components">
           <Link to="/dashboard" className="component-link">
-            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Dashboard</div>} placement="right" arrow>
+            <Tooltip title={<div className="tooltip-title">Dashboard</div>} placement="right" arrow>
               <ListItem button key="Dashboard">
                 <ListItemIcon>
-                  <HomeSharpIcon />
+                <FontAwesomeIcon icon={faHome} style={{ height: '24px', width: '24px' }} />
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
               </ListItem>
             </Tooltip>
           </Link>
           <Link to="/weather" className="component-link">
-            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Weather</div>} placement="right" arrow>
+            <Tooltip title={<div className="tooltip-title">Weather</div>} placement="right" arrow>
               <ListItem button key="Weather">
                 <ListItemIcon>
                   <WbSunnyIcon />
@@ -133,7 +131,7 @@ export default function MiniDrawer() {
             </Tooltip>
           </Link>
           <Link to="/news" className="component-link">
-            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>News</div>} placement="right" arrow>
+            <Tooltip title={<div className="tooltip-title">News</div>} placement="right" arrow>
               <ListItem button key="News">
                 <ListItemIcon>
                   <FontAwesomeIcon icon={faNewspaper} style={{ height: '24px', width: '24px' }} />
@@ -143,7 +141,7 @@ export default function MiniDrawer() {
             </Tooltip>
           </Link>
           <Link to="/stocks" className="component-link">
-            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Stocks</div>} placement="right" arrow>
+            <Tooltip title={<div className="tooltip-title">Stocks</div>} placement="right" arrow>
               <ListItem button key="Stocks">
                 <ListItemIcon>
                   <FontAwesomeIcon icon={faChartLine} style={{ height: '24px', width: '24px' }} />
@@ -153,20 +151,20 @@ export default function MiniDrawer() {
             </Tooltip>
           </Link>
           <Link to="/wellness" className="component-link">
-            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Wellness</div>} placement="right" arrow>
+            <Tooltip title={<div className="tooltip-title">Wellness</div>} placement="right" arrow>
               <ListItem button key="Wellness">
                 <ListItemIcon>
-                  <DonutLargeIcon />
+                  <FontAwesomeIcon icon={faClock} style={{ height: '22px', width: '22px' }} />
                 </ListItemIcon>
                 <ListItemText primary="Wellness" />
               </ListItem>
             </Tooltip>
           </Link>
           <Link to="/affirmations" className="component-link">
-            <Tooltip title={<div style={{ fontSize: "15px", fontWeight: "400" }}>Affirmations</div>} placement="right" arrow>
+            <Tooltip title={<div className="tooltip-title">Affirmations</div>} placement="right" arrow>
               <ListItem button key="Affirmations">
                 <ListItemIcon>
-                  <FavoriteIcon />
+                <FontAwesomeIcon icon={faHeart} style={{ height: '22px', width: '22px' }} />
                 </ListItemIcon>
                 <ListItemText primary="Affirmations" />
               </ListItem>

@@ -45,6 +45,12 @@ html, body {
   bottom: 6px;
 }
 
+.tooltip-title {
+  font-size: 15px;
+  font-weight: 400;
+  padding: 3px;
+}
+
 /* Page Heading */
 
 .page-heading {
@@ -530,7 +536,7 @@ html, body {
   }
 }
 
-@media (min-width: 600px) and (max-width: 800px) {
+@media (min-width: 600px) and (max-width: 799px) {
   #wellness-gif {
     width: 80%;
   }
