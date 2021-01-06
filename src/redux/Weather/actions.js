@@ -15,6 +15,11 @@ export const getWeatherForecastFromLocation = (lat, lon) => {
 export const getWeatherForecastFromSearch = (query) => {
   return (dispatch) => {
     axios.get(`${weatherAPI.base}q=${query}&units=imperial&APPID=${weatherAPI.key}`).then(res => {
+      let coordinates = {
+        latitude: res.data.coord.lat,
+        longitude: res.data.coord.lon
+      }
+      localStorage.setItem("location", JSON.stringify(coordinates))
       dispatch({ type: WeatherActionTypes.GET_WEATHER_FORECAST, weather: res.data })
     }).catch(function (error) {
       alert("City not found. Please try again.");

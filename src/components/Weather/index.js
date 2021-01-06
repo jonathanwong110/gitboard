@@ -70,6 +70,7 @@ class Weather extends Component {
       <>
         <div className="page-heading">Weather</div>
         <div className="page-subheading">Find the Weather For Any City</div>
+        <div className="page-subheading">Set a Default Location</div>
         <br></br>
         <div className="weather-container">
           <br></br>
