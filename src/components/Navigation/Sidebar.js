@@ -6,9 +6,8 @@ import { Drawer, AppBar, Toolbar, List, CssBaseline, Typography, Divider, IconBu
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faChartLine } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faChartLine, faCloudSun } from '@fortawesome/free-solid-svg-icons'
 import { faHeart, faNewspaper, faClock } from '@fortawesome/free-regular-svg-icons'
 import { Tooltip } from '@material-ui/core'
 
@@ -114,7 +113,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div className="tooltip-title">Dashboard</div>} placement="right" arrow>
               <ListItem button key="Dashboard">
                 <ListItemIcon>
-                <FontAwesomeIcon icon={faHome} style={{ height: '24px', width: '24px' }} />
+                  <FontAwesomeIcon icon={faHome} style={{ height: '24px', width: '24px' }} />
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
               </ListItem>
@@ -124,7 +123,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div className="tooltip-title">Weather</div>} placement="right" arrow>
               <ListItem button key="Weather">
                 <ListItemIcon>
-                  <WbSunnyIcon />
+                  <FontAwesomeIcon icon={faCloudSun} style={{ height: '24px', width: '24px' }} />
                 </ListItemIcon>
                 <ListItemText primary="Weather" />
               </ListItem>
@@ -164,7 +163,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div className="tooltip-title">Affirmations</div>} placement="right" arrow>
               <ListItem button key="Affirmations">
                 <ListItemIcon>
-                <FontAwesomeIcon icon={faHeart} style={{ height: '22px', width: '22px' }} />
+                  <FontAwesomeIcon icon={faHeart} style={{ height: '22px', width: '22px' }} />
                 </ListItemIcon>
                 <ListItemText primary="Affirmations" />
               </ListItem>
