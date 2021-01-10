@@ -8,7 +8,7 @@ import News from './components/News/index'
 import Stocks from './components/Stocks/index'
 import Wellness from './components/Wellness/index'
 import Affirmations from './components/Affirmations/index'
-const NotFound = () => (<div style={{fontSize: "20px"}}>This page is not available</div>)
+const NotFound = () => (<div style={{ fontSize: "20px" }}>This page is not available</div>)
 
 class App extends Component {
 
@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Sidebar />
+          <Route path='/:code' component={(props) => <Sidebar {...props} key={window.location.pathname} />} />
           <div style={{ height: "90px", width: "0px" }}></div>
           <Switch>
             <Route exact path="/" component={Dashboard} />

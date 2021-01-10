@@ -6,9 +6,18 @@ import { Drawer, AppBar, Toolbar, List, CssBaseline, Typography, Divider, IconBu
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import HomeIcon from '@material-ui/icons/Home';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import WbSunnyOutlinedIcon from '@material-ui/icons/WbSunnyOutlined';
+import { selectedNewsPaper } from '../Misc/MiscFunctions'
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import WatchLaterIcon from '@material-ui/icons/WatchLater';
+import WatchLaterOutlinedIcon from '@material-ui/icons/WatchLaterOutlined';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faChartLine, faCloudSun } from '@fortawesome/free-solid-svg-icons'
-import { faHeart, faNewspaper, faClock } from '@fortawesome/free-regular-svg-icons'
+import { faChartLine } from '@fortawesome/free-solid-svg-icons'
+import { faNewspaper } from '@fortawesome/free-regular-svg-icons'
 import { Tooltip } from '@material-ui/core'
 
 const drawerWidth = 240;
@@ -113,7 +122,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div className="tooltip-title">Dashboard</div>} placement="right" arrow>
               <ListItem button key="Dashboard">
                 <ListItemIcon>
-                  <FontAwesomeIcon icon={faHome} style={{ height: '24px', width: '24px' }} />
+                  {window.location.pathname.includes('/dashboard') ? <HomeIcon style={{ height: '26px', width: '26px' }} /> : <HomeOutlinedIcon style={{ height: '26px', width: '26px' }} />}
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
               </ListItem>
@@ -123,7 +132,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div className="tooltip-title">Weather</div>} placement="right" arrow>
               <ListItem button key="Weather">
                 <ListItemIcon>
-                  <FontAwesomeIcon icon={faCloudSun} style={{ height: '24px', width: '24px' }} />
+                  {window.location.pathname.includes('/weather') ? <WbSunnyIcon style={{ height: '26px', width: '26px' }} /> : <WbSunnyOutlinedIcon style={{ height: '26px', width: '26px' }} />}
                 </ListItemIcon>
                 <ListItemText primary="Weather" />
               </ListItem>
@@ -133,7 +142,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div className="tooltip-title">News</div>} placement="right" arrow>
               <ListItem button key="News">
                 <ListItemIcon>
-                  <FontAwesomeIcon icon={faNewspaper} style={{ height: '24px', width: '24px' }} />
+                  {window.location.pathname.includes('/news') ? selectedNewsPaper() : <FontAwesomeIcon icon={faNewspaper} style={{ height: '24px', width: '24px' }} />}
                 </ListItemIcon>
                 <ListItemText primary="News" />
               </ListItem>
@@ -153,7 +162,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div className="tooltip-title">Wellness</div>} placement="right" arrow>
               <ListItem button key="Wellness">
                 <ListItemIcon>
-                  <FontAwesomeIcon icon={faClock} style={{ height: '22px', width: '22px' }} />
+                  {window.location.pathname.includes('/wellness') ? <WatchLaterIcon style={{ height: '22px', width: '22px' }} /> : <WatchLaterOutlinedIcon style={{ height: '22px', width: '22px' }} />}
                 </ListItemIcon>
                 <ListItemText primary="Wellness" />
               </ListItem>
@@ -163,7 +172,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div className="tooltip-title">Affirmations</div>} placement="right" arrow>
               <ListItem button key="Affirmations">
                 <ListItemIcon>
-                  <FontAwesomeIcon icon={faHeart} style={{ height: '22px', width: '22px' }} />
+                  {window.location.pathname.includes('/affirmations') ? <FavoriteIcon style={{ height: '22px', width: '22px' }} /> : <FavoriteBorderOutlinedIcon style={{ height: '22px', width: '22px' }} />}
                 </ListItemIcon>
                 <ListItemText primary="Affirmations" />
               </ListItem>

@@ -1,3 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faNewspaper } from '@fortawesome/free-solid-svg-icons'
+
+export const selectedNewsPaper = () => {
+  return <FontAwesomeIcon icon={faNewspaper} style={{ height: '24px', width: '24px' }} />
+}
+
 export const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
