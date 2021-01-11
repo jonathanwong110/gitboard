@@ -14,13 +14,13 @@
   top: 110px;
 }
 
-@media(max-width: 399px) {
+@media (max-width: 399px) {
   #affirmations-button {
     width: 200px;
   }
 }
 
-@media(min-width: 400px) {
+@media (min-width: 400px) {
   #affirmations-button {
     width: 225px;
     height: 60px;
