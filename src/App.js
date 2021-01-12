@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Route path='/:code' component={(props) => <Sidebar {...props} key={window.location.pathname} />} />
+          <Route path='/' component={(props) => <Sidebar {...props} key={window.location.pathname} />} />
           <div style={{ height: "90px", width: "0px" }}></div>
           <Switch>
             <Route exact path="/" component={Dashboard} />
