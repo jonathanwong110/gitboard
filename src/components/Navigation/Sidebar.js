@@ -20,7 +20,7 @@ import { IoIosTrendingUp } from "react-icons/io";
 import { IoMdTrendingUp } from "react-icons/io";
 import { Tooltip } from '@material-ui/core'
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   root: {

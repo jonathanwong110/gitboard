@@ -11,6 +11,7 @@ import { formatDate, getGreetingForTimeOfDay, getDayName } from '../Misc/MiscFun
 import NewsShow from '../News/NewsShow'
 import MyCalendar from './MyCalendar'
 import StockToolbar from './StockToolbar'
+import { randomAffirmations } from '../Misc/MiscFunctions'
 
 class Dashboard extends Component {
 
@@ -19,6 +20,7 @@ class Dashboard extends Component {
     this.myRef = React.createRef();
     this.state = {
       currentDate: new Date().toLocaleString().substring(0, 10),
+      affirmation: randomAffirmations(),
     };
   }
 
@@ -77,6 +79,11 @@ class Dashboard extends Component {
       <>
         <StockToolbar />
         <div className="page-heading"> {getGreetingForTimeOfDay()} </div>
+        <div className="page-subheading">
+          <Link to="affirmations" id="dashboard-affirmations-link">
+            {this.state.affirmation}
+          </Link>
+        </div>
         <br></br>
         <div className="container-fluid" id="dashboard-first-row">
           <div className="row row-cols-sm-2">
@@ -100,9 +107,9 @@ class Dashboard extends Component {
                     <Link to="/weather" id="dashboard-weather-link">
                       <div id="dashboard-weather-wrapper">
                         <div id="dashboard-weather-location">{weather.name}</div>
-                        <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px", margin: "0 auto" }} />
-                        <div id="dashboard-weather-main-temp">{weather.main.temp} &deg;F </div>
-                        <br></br>
+                        <div id="dashboard-weather-main-temp">{Math.round(weather.main.temp)} &deg;F </div>
+                        <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "40px", width: "40px", margin: "0 auto" }} />
+                        <div id="dashboard-weather-temp-min-max">H:{Math.round(weather.main.temp_max)}&deg; {"  "} L:{Math.round(weather.main.temp_min)}&deg; </div>
                       </div>
                     </Link>
                   </> :
