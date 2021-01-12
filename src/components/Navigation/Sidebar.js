@@ -18,8 +18,6 @@ import { IoNewspaperSharp } from "react-icons/io5";
 import { IoNewspaperOutline } from "react-icons/io5";
 import { IoIosTrendingUp } from "react-icons/io";
 import { IoMdTrendingUp } from "react-icons/io";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChartLine } from '@fortawesome/free-solid-svg-icons'
 import { Tooltip } from '@material-ui/core'
 
 const drawerWidth = 240;
@@ -124,7 +122,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div className="tooltip-title">Dashboard</div>} placement="right" arrow>
               <ListItem button key="Dashboard">
                 <ListItemIcon>
-                  {window.location.pathname === '/dashboard' ? <HomeIcon style={{ height: '24px', width: '24px' }} /> : <HomeOutlinedIcon style={{ height: '24px', width: '24px' }} />}
+                  {window.location.pathname === '/dashboard' || window.location.pathname === '/' ? <HomeIcon style={{ height: '24px', width: '24px' }} /> : <HomeOutlinedIcon style={{ height: '24px', width: '24px' }} />}
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
               </ListItem>
