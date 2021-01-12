@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
-import './News.css'
 import { getTopNews } from '../../redux/News/actions'
 import NewsShow from './NewsShow'
 import NewsCategory from './NewsCategory'

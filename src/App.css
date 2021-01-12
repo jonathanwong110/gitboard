@@ -17,6 +17,7 @@ html, body {
   text-align: center;
   height: 100vh;
   width: 100vw;
+  max-width: 100%;
   background-color: white;
 }
 
@@ -375,15 +376,45 @@ html, body {
 /* News */
 
 @media (max-width: 767px) {
-  #news-section-nav div div {
-    display: inline-block;
-    width: 25%;
-    margin: 10px 20px;
-    position: relative;
-    left: 75px;
+  #news-section-nav {
+    width: 65%;
+    margin-right: auto;
   }
-  #news-section-nav div {
-    width: calc(100% - 150px)
+  #news-section-nav div div {
+    padding: 0;
+  }
+}
+
+
+@media (max-width: 599px) {
+  #news-section-nav div div {
+    padding: 0;
+    display: inline-block;
+    margin: 10px 20px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 599px) {
+  #news-section-nav {
+    margin-left: 15%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 649px) {
+  #news-section-nav {
+    margin-left: 16%;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 699px) {
+  #news-section-nav {
+    margin-left: 16.5%;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 767px) {
+  #news-section-nav {
+    margin-left: 17.5%;
   }
 }
 
@@ -394,6 +425,9 @@ html, body {
   }
   #news-section-nav div div {
     padding: 0;
+  }
+  #news-section-nav div div div {
+    padding: auto;
   }
 }
 
@@ -539,5 +573,36 @@ html, body {
 @media (min-width: 600px) and (max-width: 799px) {
   #wellness-gif {
     width: 80%;
+  }
+}
+
+/* Affirmations */
+
+#affirmations-page {
+  background: url('https://i.imgur.com/08TtlFW.jpg') no-repeat fixed center;
+  background-size: cover;
+  height: inherit;
+  width: inherit;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  bottom: 110px;
+}
+
+#affirmations-content {
+  position: relative;
+  top: 110px;
+}
+
+@media (max-width: 399px) {
+  #affirmations-button {
+    width: 200px;
+  }
+}
+
+@media (min-width: 400px) {
+  #affirmations-button {
+    width: 225px;
+    height: 60px;
   }
 }

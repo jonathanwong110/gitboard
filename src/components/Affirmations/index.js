@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { randomAffirmations } from '../Misc/MiscFunctions'
-import './Affirmations.css'
 
 class Affirmations extends Component {
 

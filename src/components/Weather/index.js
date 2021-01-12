@@ -86,7 +86,7 @@ class Weather extends Component {
               <Image src={"http://openweathermap.org/img/wn/" + weather.weather[0].icon + ".png"} style={{ height: "75px", width: "75px" }} />
               <div className="weather-main-temp">{weather.main.temp} &deg;F </div>
               <br></br>
-              <div id="weather-temp-min-max">Low {weather.main.temp_min} &deg;F  / Low {weather.main.temp_max} &deg;F </div>
+              <div id="weather-temp-min-max">H: {weather.main.temp_max}&deg; L: {weather.main.temp_min}&deg; </div>
               <br></br>
               <div id="weather-advice">{this.giveAdvice(weather.main.temp)}</div>
               <br></br>
