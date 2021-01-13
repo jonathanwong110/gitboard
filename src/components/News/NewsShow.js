@@ -17,7 +17,9 @@ export default function NewsShow(props) {
           <div className="row no-gutters">
             <div className="col-md-5">
               {article?.multimedia !== null ? <Image src={article?.multimedia[0].url} className="card-img article-image" alt="Article Picture" /> :
-                <div className="card-img article-image"></div>}
+                <div className="card-img article-image" style={{fontSize: "20px", paddingTop: "75px"}}>
+                  Article Picture
+                </div>}
             </div>
             <div className="col-md-7">
               <div className="card-body">

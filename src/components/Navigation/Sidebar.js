@@ -142,7 +142,7 @@ export default function MiniDrawer() {
             <Tooltip title={<div className="tooltip-title">News</div>} placement="right" arrow>
               <ListItem button key="News">
                 <ListItemIcon>
-                  {window.location.pathname === '/news' ? <IoNewspaperSharp style={{ height: '24px', width: '24px' }} /> : <IoNewspaperOutline style={{ height: '24px', width: '24px' }} />}
+                  {window.location.pathname.includes('/news') ? <IoNewspaperSharp style={{ height: '24px', width: '24px' }} /> : <IoNewspaperOutline style={{ height: '24px', width: '24px' }} />}
                 </ListItemIcon>
                 <ListItemText primary="News" />
               </ListItem>

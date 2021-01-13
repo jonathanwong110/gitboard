@@ -373,20 +373,19 @@ html, body {
 
 /* News */
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   #news-section-nav {
     width: 65%;
-    margin-right: auto;
+    position: relative;
+    right: 1%;
   }
-  #news-section-nav div div {
+  .news-section-col-wrapper {
     padding: 0;
   }
 }
 
-
 @media (max-width: 599px) {
-  #news-section-nav div div {
-    padding: 0;
+  .news-section-col {
     display: inline-block;
     margin: 10px 20px;
   }
@@ -394,39 +393,52 @@ html, body {
 
 @media (min-width: 577px) and (max-width: 599px) {
   #news-section-nav {
-    margin-left: 15%;
+    position: relative;
+    right: 5%;
   }
 }
 
 @media (min-width: 600px) and (max-width: 649px) {
   #news-section-nav {
-    margin-left: 16%;
+    position: relative;
+    right: 3.5%;
   }
 }
 
 @media (min-width: 650px) and (max-width: 699px) {
   #news-section-nav {
-    margin-left: 16.5%;
+    position: relative;
+    right: 3%;
   }
 }
 
 @media (min-width: 700px) and (max-width: 767px) {
   #news-section-nav {
-    margin-left: 17.5%;
+    position: relative;
+    right: 2%;
+  }
+  .news-section-col {
+    padding-left: 10px;
   }
 }
 
 @media (min-width: 768px) {
   #news-section-nav {
     width: 600px;
-    margin: 0 auto;
-  }
-  #news-section-nav div div {
     padding: 0;
   }
-  #news-section-nav div div div {
+  .news-section-col-wrapper {
+    padding: 0;
+  }
+  .news-section-col {
     padding: auto;
   }
+}
+
+.news-section-button-wrapper {
+  width: 100%;
+  padding-top: 11.5px;
+  padding-bottom: 11.5px;
 }
 
 .news-section-button, #calendar-button, #affirmations-button {
