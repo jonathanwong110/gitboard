@@ -106,7 +106,7 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Gitboard
+            GitBoard
           </Typography>
         </Toolbar>
       </AppBar>
