@@ -30,7 +30,7 @@ class Affirmations extends Component {
                 Give me an affirmation!
               </button>
             </div>
-            <div className="page-subheading">{this.state.affirmation}</div>
+            <div className="page-subheading" id="affirmations-content">{this.state.affirmation}</div>
           </div>
         </div>
       </>

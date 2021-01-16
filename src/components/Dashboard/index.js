@@ -90,7 +90,7 @@ class Dashboard extends Component {
             <div className="col-sm">
               <div className="today-information">
                 <br></br>
-                <div id="today-day">
+                <div id="today-time">
                   {new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })}
                 </div>
                 <div id="today-date">

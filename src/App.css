@@ -175,24 +175,27 @@ html, body {
 }
 
 
-#today-day, #today-date, #dashboard-weather-link, #dashboard-weather-main-temp {
+#today-time, #today-date, #dashboard-weather-link, #dashboard-weather-main-temp {
   margin: 0 auto;
 }
 
-#today-day {
+#today-time {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 #today-date {
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  word-wrap: break-word;
 }
 
-#calendar-button:hover, #affirmations-button:hover {
-  background-color: var(--hover-color);
-  border: 1px solid var(--hover-color);
-  color: var(--primary-color);
+#calendar-button:hover, #calendar-button:focus, #affirmations-button:hover, #affirmations-button:focus {
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.19), 0 3px 3px rgba(0,0,0,0.23);
+  transform: translateY(-0.25em);
 }
 
 #calendar-modal {
@@ -298,7 +301,7 @@ html, body {
   .weather-container {
     width: 75%;
     max-width: 600px;
-    margin-left: 20%;
+    margin-left: 15%;
     height: auto;
     max-height: 600px;
   }
@@ -306,7 +309,7 @@ html, body {
 
 @media (min-width: 701px) {
   .weather-container {
-    width: 40%;
+    width: 65%;
     max-width: 600px;
     margin: 0 auto;
     height: auto;
@@ -367,10 +370,6 @@ html, body {
   margin-bottom: 6px;
   background-color: var(--primary-color) !important;
   border: 1px solid var(--primary-color) !important;
-}
-
-.search-button:hover {
-  color: var(--hover-color) !important;
 }
 
 /* News */
@@ -453,10 +452,10 @@ html, body {
   outline: none;
 }
 
-.news-section-button:hover {
-  background-color: var(--hover-color);
-  border: 1px solid var(--hover-color);
-  color: var(--primary-color);
+.news-section-button:hover, .news-section-button:focus {
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.19), 0 3px 3px rgba(0,0,0,0.23);
+  transform: translateY(-0.25em);
 }
 
 .news-section-button:focus {
