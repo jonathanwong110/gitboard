@@ -170,6 +170,10 @@ html, body {
   height: 198px;
 }
 
+.today-information:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
 
 #today-day, #today-date, #dashboard-weather-link, #dashboard-weather-main-temp {
   margin: 0 auto;
@@ -219,6 +223,10 @@ html, body {
   transition: 0.3s;
   border-radius: 5px;
   height: 198px;
+}
+
+.dashboard-weather-container:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 #dashboard-weather-wrapper {
@@ -272,15 +280,9 @@ html, body {
   border-radius: 5px;
 }
 
-/* @media (max-width: 379px) {
-  .weather-container {
-    width: 75%;
-    max-width: 600px;
-    margin-left: 25%;
-    height: auto;
-    max-height: 600px;
-  }
-} */
+.weather-container:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
 
 @media (max-width: 550px) {
   .weather-container {
@@ -476,7 +478,7 @@ html, body {
 }
 
 .article-individual-wrapper:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 @media (min-width: 299px) and (max-width: 599px) {
@@ -536,6 +538,12 @@ html, body {
 
 #stocks-container div iframe {
   min-height: 710px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#stocks-container div iframe:hover {
+  min-height: 710px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 @media (max-width: 399px) {
@@ -599,7 +607,7 @@ html, body {
   bottom: 110px;
 }
 
-#affirmations-content {
+#affirmations-container {
   position: relative;
   top: 110px;
 }

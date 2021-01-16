@@ -6,13 +6,13 @@ export const getGreetingForTimeOfDay = () => {
   let timeOfDay = new Date()
   let hourOfDay = timeOfDay.getHours()
   if (hourOfDay > 5 && hourOfDay < 8) {
-    return "Mornin' Sunshine"
+    return "Mornin' Sunshine!"
   } else if (hourOfDay > 8 && hourOfDay < 12) {
-    return "Good Morning"
+    return "Good Morning!"
   } else if (hourOfDay > 12 && hourOfDay < 17) {
-    return "Good Afternoon"
+    return "Good Afternoon!"
   } else {
-    return "Good Evening"
+    return "Good Evening!"
   }
 }
 

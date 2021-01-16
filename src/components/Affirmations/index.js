@@ -22,7 +22,7 @@ class Affirmations extends Component {
     return (
       <>
         <div id="affirmations-page">
-          <div id="affirmations-content">
+          <div id="affirmations-container">
             <div className="page-heading">Positive Affirmations</div>
             <div className="page-subheading"><i>Feel better, be better</i></div>
             <div>
