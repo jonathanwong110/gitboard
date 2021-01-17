@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import Calendar from 'react-calendar';
 
-export default function MyCalendar({ dayOfTheWeek, currentTime }) {
+export default function MyCalendar({ currentTime, dayOfTheWeek, currentDate }) {
 
   const [show, setShow] = useState(false);
   const [value, onChange] = useState(new Date());
@@ -18,7 +18,14 @@ export default function MyCalendar({ dayOfTheWeek, currentTime }) {
       <Modal show={show} onHide={handleClose} animation={false} aria-labelledby="contained-modal-title-vcenter" centered id="calendar-modal">
         <Modal.Header closeButton>
           <Modal.Title>
-            <div>{dayOfTheWeek}, {currentTime}</div>
+            <div>
+              <div>
+                {currentTime}
+              </div>
+              <div style={{fontSize: "20px"}}>
+                {dayOfTheWeek}, {currentDate}
+              </div>
+            </div>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

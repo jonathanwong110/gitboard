@@ -96,7 +96,7 @@ class Dashboard extends Component {
                 <div id="today-date">
                   {formatDate(this.state.currentDate)}
                 </div>
-                <MyCalendar currentTime={this.state.currentTime} dayOfTheWeek={getDayName(today)} />
+                <MyCalendar currentTime={this.state.currentTime} dayOfTheWeek={getDayName(today)} currentDate={formatDate(this.state.currentDate)} />
               </div>
             </div>
             <div className="col-sm">

@@ -208,7 +208,13 @@ html, body {
   }
 }
 
-@media (max-width: 575px) {
+@media (min-width: 300px) and (max-width: 474px) {
+  #calendar-modal {
+    margin-left: 18%;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 575px) {
   #calendar-modal {
     margin-left: 20%;
   }
@@ -257,6 +263,8 @@ html, body {
 }
 
 #dashboard-weather-temp-min-max {
+  margin-left: auto;
+  margin-right: auto;
   font-size: 20px;
 }
 
@@ -374,14 +382,19 @@ html, body {
 
 /* News */
 
+.news-section-col-wrapper {
+  padding: 0;
+}
+
+.news-section-col {
+  padding: auto;
+}
+
 @media (max-width: 768px) {
   #news-section-nav {
     width: 65%;
     position: relative;
     right: 1%;
-  }
-  .news-section-col-wrapper {
-    padding: 0;
   }
 }
 
@@ -429,7 +442,7 @@ html, body {
     padding: 0;
   }
   .news-section-col-wrapper {
-    padding: 0;
+    width: 625px;
   }
   .news-section-col {
     padding: auto;
@@ -523,6 +536,10 @@ html, body {
 
 .article-title a {
   color: black;
+}
+
+.article-date {
+  font-size: 13px !important;
 }
 
 .article-date a {
