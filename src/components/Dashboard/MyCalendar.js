@@ -22,7 +22,7 @@ export default function MyCalendar({ currentTime, dayOfTheWeek, currentDate }) {
               <div>
                 {currentTime}
               </div>
-              <div style={{fontSize: "20px"}}>
+              <div style={{fontSize: "16px"}}>
                 {dayOfTheWeek}, {currentDate}
               </div>
             </div>
